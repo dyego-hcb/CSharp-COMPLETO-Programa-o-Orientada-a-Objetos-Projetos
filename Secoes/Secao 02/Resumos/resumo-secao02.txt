@@ -1,0 +1,110 @@
+-- Resumo da Seção 2: ntrodução ao C# e .NET - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nessa secao, iremos ter uma introducao ao C# e o .NET, onde iremos aprender o que e cada uma dessas linguagens, iremos aprender sobre o processo
+de compilacao, interpretacao, e execucao do C#, pois o mesmo possui uma arbodragem hibrida entre essas duas lingaugens.
+Iremos aprender como e a estruturacao de uma aplicacao C# e .NET.
+
+Nessa secao, iremos criar nosso primeiro programa em C#, e debater sobre a estruturacao de um programa em C#.
+Alem de dicas para melhorarmos nossa experiencia no visual studio para programas em C#.
+
+C# e .NET:
+C# : uma linguagem de programação (regras sintáticas para escrevermos os programas)
+.NET (2002): uma plataforma de desenvolvimento para se criar diversos tipos de aplicações, podendo usar várias linguagens de programação
+https://www.microsoft.com/net/learn/what-is-dotnet
+
+O .NET e uma especificacao que permite desenvovlimento em varias linguagens, como C#, VB e F#.
+O .NET e composto por 2 componentes que sao:
+
+1- BCL - Base Class Library
+https://msdn.microsoft.com/en-us/library/gg145045(v=vs.110).aspx
+
+Em programacao, nos chamamos de biblioteca, um conjunto de funcionalidades que podemos utilizar em nossos programas, o .NET ja disponibiliza varias
+bibliotecas para o desenvolvimento das nossas aplicacoes.
+
+2- CLR - Common Language Runtime (Máquina Virtual) -> E uma maquina virtual que executa os programas feitos no .NET, como se fosse o JVM do JAVA
+Nota: possui garbage collection (objetos não utilizados são automaticamente desalocados da memória -> muito importante para o programado nao precisa se preoupar em desalocar recursos)
+https://www.microsoft.com/net/download
+https://docs.microsoft.com/pt-br/dotnet/framework/migration-guide/how-to-
+determine-which-versions-are-installed
+
+O .NET e apenas uma especificacao chamado .NET Standard, ele e uma documnentacao contendo as listagens e descricao de recursos que o .NET deve ter, porem para que o .NET exista de verdade,
+o mesmo precisa ser implementado.
+
+Todas as aplicacoes, seja .NET Framework, .NET Core, ou Xamarin, irao possuir as Base Libraries, so que dependendo da implementacao, iremso precisar de outros framkeworks ou ferramentas para o desenvolvimento. 
+
+Compilação e interpretação
+
+Quando escrevemos um programa, escrevemos um codigo fonte, que e compreendido pelo programador, mas nao pelo computador, para que o computador entenda o codigo que o programador escreveu,
+devemos transformar o codigo fonte  em um codigo executavel, e para isso existem  2 processo que sao a compilacao e a interpretacao.
+
+Linguagens compiladas: C, C++
+Linguagens interpretadas: PHP, JavaScript
+Linguagens pré-compiladas + máquina virtual: Java, C#
+
+Quando a linguagem e compilada, ele e compilado para executar naquele sistema operacional, talvez haja necessidade de adaptacoes devido aos diferente sistemas operacionais
+Quando a linguagem e interpretada, ele nao e compilado para ser executado, para cada sistema operacional, iremos ter um interpretador, como por exemplo navegadores.
+
+Linguagem interpretada possui uma desvantagem em relacao aos compilados, essa desvantagem e na questao de que uma vez gerado um executavel na linguagem compilada, o mesmo ira executar mais rapido
+
+Quando a linguagem e pre-compilada, o codigo fonte passa por um processo de pre compilacao, esse processo vai gerar um codigo bytecode, que uma linguagem intermediaria, sendo uma linguagem plataform agnostic,
+fazendo com que o mesmo codigo rode em plataformas diferentes, uma vantegem e que o bytecode ja passou por um pre compilamento, entao temos uma garantia de que esta correto sintaxcamente, esse bytecode
+sera executado em cima da maquina virtual de cada sistema operacional
+
+Outra vantagem das linguagens pre-compiladas e que utilizamos ambas arbodagem de compilacao e interpretacao, onde o codigo fonte e pre compilado e transfomado em bytecode, garantido que as regras de sintaxe estao corretas,
+deixando mais rapido o processo, fazendo com que nao seja necessario recompilar.
+
+Modelo de exeucucao do C# -> O programa e escrito pelo programador -> o programa e pre-compilado gerando um codigo bytecode ->  esse codigo bytecode ira rodar em uma maquina virtual do sistema operacional -> o codigo e convertido em codigo de maquina executavel -> o programa e executado
+O processo de compilacao da mauqina virutal e chamado de just-in-time, que e muito mais rapido que a interpretacao classica, pois ele ja pega um codigo que esta correto sintaxicamente
+
+Estrutura de uma aplicação C# .NET, como C# e orientada a objetos, sua estruturacao e composta por classes, onde teremos um conjunto de classes que representaram a nossa aplicacao.
+Essas classes podem ser agrupadas em namespace, que sao agrupamanto logicos de classses relacionadas, como no padrao MVC, podemos dividir nossas classes em grupos como por exemplo:
+
+1- Entities -> Entidades do negocio como produto cliente pedido
+2- Services -> Sao classes que fazem servicos no sistemas
+3- Repositories -> Sao classes de acesso aos dados
+
+Alem do namespace, tambem temos o Assembly(DLL ou EXE) que sao agrupamentos fisicos de classes relacionadas(build), como por exemplo quando temos um projeto muito grande, podemos dividir esse projeto em sub-sistemas:
+
+1- Financial
+1.1- Entities
+1.2- Services
+1.3- Repositories
+
+2- Graphics
+2.1- Graphs3D
+2.2- Graphs2D
+2.3- Utilitarios
+
+Deixando o projeto mais organizado, fazendo com o sistema componha apenas aquilo que realmente faca sentido para a sua execucao
+
+Temos por utimo o coneito de aplicacao, que e o agrupamente de assemblies relacioonadas, que representara a nossa aplicacao composta por varios Assemblys, como por exemplo o sistema de um comercio eletronico
+
+No Visual Studio:
+Aplicacao = Solution
+Assembly = Project 
+
+Para desenvolvermos as aplicacoes C# iremos utilizar a IDE Visual Studio Comunity, para instalar basta ir no site oficial do visual studio code e baixar o arquivo.
+Caso esteja em um ambiente linux ou MacOs e deseja instalar o Visual Studio Code via instalador de pacotes, verificar se ha disponivel para download via sudo, snapcraft, homebrew, instaladores de pacotes do so.
+Apos feito isso, deve-se instar o .NET tambem utilzando o instalador de pacotes.
+Para criar um projeto C# no linux ou MacOs, apos instalar o .NET, deve-se dar o comando: dotnet new console --framework net8.0 --use-program-main
+E para rodar a aplicacao, devemos utilzar o comando dotnet run
+
+Estrutura de um programa C#:
+
+-Estrutura de arquivos
+Arquivo .sln -> Como o projeto C# e uma solucao, esse e o arquivo da solucao, a partir deste arquivo que abrimos o projeto
+Arquivo .csproj -> Arquivo de configuracao do projeto, iremos mecher apenas quando precisarmos colocar alguma dependencia ou algo do tipo
+Classe principal .cs -> Esse e o arquivo da linguaguem C#, nosso codigo fonte
+Subpastas obj e bin -> Onde o Visual Studio guarda os arquivos compilados
+
+Obs: Caso o arquivo .sln nao esteja aparecendo deve-se configurar para aparecer, no windows indo em painel de controle, opcoes de pasta, modo de exibicao, ocultar extensoes de tipo de arquivos deseconhecido deve ser desmarcado e marcar para mostrar aquivos e pastas ocultas
+
+- Cláusulas 
+using -> referências a outros namespaces
+Namespace -> declaracao do namespace desse arquivo
+Classe -> Por boas praticas, deve-se colocar as classes dentro de namespaces, classes sao unidade basica de programacao orientada a objetos, todo o codigo fonte devera esta edntro dela, sempre colcoar o nome da classe com o nome do arquivo, boas praticas
+Método -> Sao acoes que uma determinada classe pode fazer
+static void Main(string[] args) -> Ponto de entrada da aplicacao
+
+Dicas do Visual Studio:
+Indentação automática: CTRL + K + D

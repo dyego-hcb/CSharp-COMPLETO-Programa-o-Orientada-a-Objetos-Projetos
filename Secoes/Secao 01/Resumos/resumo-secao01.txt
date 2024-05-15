@@ -1,0 +1,47 @@
+-- Resumo da Seção 1: Apresentação do curso e orientações - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Essa secao, vai ser um capitulo de apresentacao do curso, onde iremos ver o que sera abordado ao longo do curso, as metodologias, etc.
+Esse curso e baseado em quatro pilares que sao:
+
+1- A programacao Orientada a Objetos
+2- Linguagem C#
+3- Tecnologicas da plataforma C#, como por exemplo as kinnect core para aplicacoes web, entiti framework para mapeamento objeto relacional com baseado
+4- Teoria aliada praticas, com exercicios reais 
+
+O curso contara tambem com projetos,onde por meio desses projetos, iremos aprender como esses 4 pilares se unem para construcoes de solucoes reais, e 
+tambem ira nos proprocionar um portifiolio basico ao fim do curso.
+
+Esse e um curso completo de C#, visando foco na parte de programacao orientada a objetos, visto que a linguagem C# e orientada a objetos.
+Para aprender sobre programacao orientada a objetos, deve-se ter uma boa logica de programcao, isso em qualquer linguagem.
+
+Nesse curso, nos projetos praticos, iremos criar sistemas reais, como por exemplo um sistema de pedido, um sistema de uma locadora, baseado em exemplos que
+possivelmente iremos ver profissionalmente.
+
+O curso esta estruturado da seguinte maneira:
+
+1- Nivelamento -> Introducao a C# e .NET e uma recapitulacao de logica de programacao usando C#
+2- OO basico -> Classes Atributos Metodos Membros Estaticos, Construtores Palavra This Sobrecarga Encapsulamento, Comportamento de Memoria Arrays Listas, Topicos Especias em C# Parte 1
+3- OO Intermediario -> Enumeracoes Composicoes, Heranca Polimorfismo, Tratamento de Excecoes
+4- OO Intermediario/Avancado -> Trabalhando com Arquivos, Interfaces, Generics Set Dictionary, Topicos Especiais em C# Parte 2, Expressoes Lambda Delegates LINQ
+5- Comercial - Libs/Frameworks da plataforma C# e .NET -> Padrao de Camadas Padrao MVC Banco de Dados ORM GUI CRUD ETC, ASP .NET Core Entity FrameWork Core
+
+Cada um desses niveis e captulos abordados, terao exercicios teoriocos e/ou praticos.
+
+Projetos e Bonus:
+- Nivelamento sobre Git e Github
+- Projeto: Sistema jogo de xadrez
+- Projeto: aplicacao web com ASP .NET Core MVC e Entity FrameWork
+
+Para se tornar um bom desenvolvedor devemos ter uma base bem solida, tatno na logica de programcao quanto no desgin de solucoes, conhecendo as tecnicas de programacao
+os principios e as boas praticas.
+
+Para tornar-se um profissional C#, precisamos passar por duas etapas que sao:
+
+1- Fundamentos -> Logica, Estrutura de Dados, Programacao Orientada a Objetos, Banco de Dado, Analise e Desing de Sistemas.
+2- Comercial -> Back End, Web, Mobile, Desktop, Games
+
+Ambas sao importantes, mas para ser eficiente na area comercial, devemos ter um bom fundamento.
+Esse curso dera mais enfoque na parte de programacao orientada a objetos, visto que e um fundamento muito importante para o desenvolvimento de softwawre modernos, mas abrangera tudo um pouco.
+
+Nessa secao, foram apresentados alguns exercicios de logica de programacao, foram feitos na linguagem C++.
+A resolucao do exercicio, esta na pasta Exercicios/Exercicios Video Aula/Resolucao

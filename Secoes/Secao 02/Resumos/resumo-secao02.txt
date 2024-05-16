@@ -1,4 +1,4 @@
--- Resumo da Seção 2: ntrodução ao C# e .NET - C# COMPLETO Programação Orientada a Objetos + Projetos --
+-- Resumo da Seção 2: Introdução ao C# e .NET - C# COMPLETO Programação Orientada a Objetos + Projetos --
 
 Nessa secao, iremos ter uma introducao ao C# e o .NET, onde iremos aprender o que e cada uma dessas linguagens, iremos aprender sobre o processo
 de compilacao, interpretacao, e execucao do C#, pois o mesmo possui uma arbodragem hibrida entre essas duas lingaugens.

@@ -1,0 +1,272 @@
+-- Resumo da Seção 3: Recapitulação de Lógica de Programação usando C# - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse secao, temos como objetivo que ao final desta secao, possamos construir programas basicos, aplicando logica de programcao, usando C#,
+nessa secao sera abordado os topicos:
+
+1- Tipos de dados basicos em C#
+2- Estrutura sequencial (entrada, processamento, saida)
+3- Operadores (aritimeticos, comparativos, logicos)
+4- Estruturas de controle (if-else, while, for)
+
+Documentacao tipos basicos em C#:
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/built-in-types-table
+
+Tipos básicos em C#:
+C# é uma linguagem estaticamente tipada
+Tipos valor pré-definidos em C#
+Tipos referência pré-definidos em C#
+Variável não atribuída
+Overflow -> E quando um calculo extrapola o limite da variavel, o valor da variavel vai para o limite oposto, como no byte se for 255 e add 1 ele vai pro 0
+Padrão para float: sufixo "f" apos a declaracao da variavel
+Padrão para char: aspas simples
+Padrão para string: aspas duplas
+Padrão para bool: true, false
+Opção: inferência de tipos com palavra "var" (dentro de métodos)
+
+Podemos declara variavels com tipo predefinidas pelo C# e pelo .NET em aplicacoes C#, porem ao utilizar variavels predefinidas pelo .NET precisamos dar o import do using System, se nao o comando nao e conhecido
+Obs: Boas praticas, ao declarar um valor do tipo Long, colocar o L no final do numero
+O tipo string nao e considerado um tipo basico do C#, pois ele e uma cadaeia de caracteres imuavel, pois uma vez que criamos uma string nao podemos mais alterar o valor dela, trazendo mais seguranca, simplicidade e thread safe
+Quando alteramos uma variavel do tipo string, estamos criando uma nova string e alocando naquela variavel
+Temos tambem o tipo object, que e um objeto generico, toda classe C# e subclasse de object, pois qualquer coisa alocado em um objeto da calsse object vai ser aceito
+
+Funções para valores mínimos e máximos
+int.MinValue
+int.MaxValue
+sbyte.MaxValue
+long.MaxValue
+decimal.MaxValue
+etc...
+
+Tipo valor e quando guardamos o valor dentro da memoria
+Tipo referencia e quando guardamos o endereco daquele objeto na memoria
+
+Restrições para nomes de variáveis:
+Não pode começar com dígito: use uma letra ou _
+Não usar acentos ou til
+Não pode ter espaço em branco
+Sugestão: use nomes que tenham um significado
+
+Errado:
+int 5minutos;
+int salário;
+int salario do funcionario;
+
+Correto:
+int _5minutos;
+int salario;
+int salarioDoFuncionario;
+
+Convenções
+Camel Case: lastName (parâmetros de métodos, variáveis dentro de métodos)
+Pascal Case: LastName (namespaces, classe, properties e métodos)
+Padrão _lastName (atributos "internos" da classe)
+
+Saida de dados em C#:
+Imprimir na saida padrao (console)
+Comandos:
+Console.WriteLine(valor) -> Adiciona uma quebra de linha no final
+Console.Write(valor) -> Nao adiciona quebra de linha
+
+Para definir quantas casas decimais mostrar em variavels do tipo flutuantes decimais e doubles, etc, temos que utilizar o metodo ToString e passar por parentese a quantidade de casa atraves do parametro "FN" n e o numero ed casas
+Para definir o . como separador, utiliamos o ToString e passamos por parametros um objeto chamado formatprovider, para isso precisamos importar uma biblioteca usando o using, o nome dela e System.globalization, que e usado para
+definir a formatacao do numero, e passamos por parametro no ToString o objeto CultureInfo.InvariantCulture, onde ficara definido como . o delimitador decimal
+
+Placeholders -> Utilizamos a sintaxe "{N}", nome_var, quando colocamos no os {N}, onde n representa o atributo na ordem que voce quer que apareca, para delimitar a quantidade de casas decimais, basta colocar {N:FNC}, onde n e o numero da variavel a ser alocada e nc e o numero de cadas decimais definidas
+Concatenacao -> Utilizamo a sintaxe nome_var + "texto", para delimitar a quantidade de casas usamos o ToString
+Interpolacao -> Utilizamos a sintaxe de $"{nome_var} texto", para delimitar a quantidade de casas, basta {nome_var:FNC}, onde nc e o numero de cadas decimais definidas
+
+Para colocar o . em vez da , como separador decimal, usa-se apenas o ToString
+
+Operadores de atribuicao, e o operador de igual, ele atribui algo a uma variavel:
+= -> faz com que uma variavel do lado esquerdo recaba o valor que esta do lado direito do sinal de igualdade
+
+Operadores de atribuicao comulativa
++= -> Soma um valor que esta do lado direto da igualdade, juntamente com o valor da variavel que esta do lado esquerdo da igualdade e do sinal de adicao, e altera o valor da variavel
+-= -> Subtrai um valor que esta do lado direto da igualdade, juntamente com o valor da variavel que esta do lado esquerdo da igualdade e do sinal de subtracao, e altera o valor da variavel
+*= -> Multiplica um valor que esta do lado direto da igualdade, juntamente com o valor da variavel que esta do lado esquerdo da igualdade e do sinal de multiplicacao, e altera o valor da variavel
+/= -> Divide um valor que esta do lado direto da igualdade, juntamente com o valor da variavel que esta do lado esquerdo da igualdade e do sinal de divisao, e altera o valor da variavel
+%= -> Pega o modulo (resto da divisao) um valor que esta do lado direto da igualdade, juntamente com o valor da variavel que esta do lado esquerdo da igualdade e do sinal de mod, e altera o valor da variavel
+
+O += funciona para concatenar strings
+
+Operador Aritimetico/atribuicao:
+++ -> Incrementa em 1 a variavel
+-- -> Decrementa em 1 a variavel
+
+Quando utiliazmos a sintaxe nome_var++ e atribuimos esse valor a uma variavel qualquer, ele ira primeiro pegar o valor da variavel nome_var e alocara na variavel qualquer e depois ira incrementar o valor da nome_var
+Se usarmos a sintaxe ++nome_var, ele ira primeiro incrementar a variavel nome_var e depois ira alocar esse resultado em uma variavel qualquer
+
+Conversão implícita e casting:
+
+Conversão implícita entre tipos -> E quando um conteudo do certo tipo, pode ser naturalmente atribuido a uma variavel de outro tipo, como por exemplo um double receber um float
+Tabela de tipos compativeis:
+https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/keywords/implicit-numeric-conversions-table
+
+Casting-> conversão explícita entre tipos COMPATÍVEIS
+
+Operadores artitimetricos:
+Operador Significado
++ adição
+- subtração
+* multiplicação
+/ divisão
+% resto da divisão
+NOTAS:
+
+1- * / % tem precedência maior que + -
+
+2-Exemplos:
+3 + 4 * 2 Resultado: 11
+(3 + 4) * 2 Resultado: 14
+
+3- Pode-se usar parêntesis à vontade
+
+4- Exemplo com mod:
+17 % 3 Resultado: 2
+17 3
+5  2
+
+Entrada de dados em C#:
+Comando:
+Console.ReadLine();
+Lê da entrada padrão até a quebra de linha.
+Retorna os dados lidos na forma de string.
+Como a leitura nos retonra uma string, devemos converter para o respectivo tipo, utilizando a funcao Parse, onde e definida como nome_tipo.Parse(), ao usar o Parse, execoes podem ser captadas
+
+Para pegarmos dados em uma string, seperados por ' ' devemos usar o metodo chamado split, que ira quebra nossa string onde houver ocorrencias de ' ' ou o que voce definir, e para isso tambem e necessario a criacao de um vetor de string, que ira armazernar as strings que foram separadas, podendo ser acessadas atravez do indice
+
+Operadores comparativos
+Operador Significado
+> maior
+< menor
+>= maior ou igual
+<= menor ou igual
+== igual
+!= diferente
+
+Operadores lógicos
+Operador Significado
+&& E
+|| OU
+! NÃO
+
+NOTAS:
+1- Precedência: ! > && > ||
+2- Pode-se usar parêntesis à vontade
+3- Exemplos:
+
+2 > 3 || 4 != 5 Resultado: true
+!(2>3) && 4 != 5 Resultado: true
+
+Tabela verdade E
+C1 C2 C1 E C2
+F F F
+F V F
+V F F
+V V V
+
+Tabela Verdade OU
+C1 C2 C1 OU C2
+F F F
+F V V
+V F V
+V V V
+
+Comentario //
+
+Estrutura condicional temos 3 tipos, que sao:
+
+Simples
+if ( condição ) {
+comando 1
+comando 2
+}
+
+Composta
+if ( condição ) {
+comando 1
+comando 2
+}
+else {
+comando 3
+comando 4
+}
+
+Encadeamentos
+if ( condição 1 ) {
+comando 1
+comando 2
+}
+else if ( condição 2 ) {
+comando 3
+comando 4
+}
+else if ( condição 3 ) {
+comando 5
+comando 6
+}
+else {
+comando 7
+comando 8
+}
+
+if = se a condicao for true, entra no bloco de comandos do if
+else = se a condicao for falsa
+else if = semelhante ao if, porem podemos ter mais de 1 else if
+Nota: se o bloco de comandos possuir apenas um comando, as chaves são opcionais.
+Obs1: Se tivermos mais de 2 condicoes, devemos usar o if else if, pois o programa ira fazer as verificacoes de todos os if, o esle if garante a exclusao das outras possibilidades que estao acima dele
+
+Escopo e inicialização:
+Escopo de uma variável: é a região do programa onde a variável é válida, ou seja, onde ela pode ser referenciada, se uma variavel e criada dentro de um if e nao no programa principal, nao temos acesso a ela, essa variavel so existira no momento em que o program esta rodando e entra naquele comando de bloco, caso saia, essa variavel e desalocada.
+Uma variável não pode ser usada se não for iniciada, como definir um valor ou receber uma entrada
+Falaremos de escopo de métodos de maneira mais aprofundada no Capítulo "Comportamento de memória, arrays, listas"
+
+Funções
+Representam um processamento que possui um significado
+Math.Sqrt(double) -> Funcao de raiz quadrada
+Console.WriteLine(string) -> Funcao de print
+Principais vantagens: modularização dividir o program em parte menor, delegação vai delegar aquele processamento a outro lugar e reaproveitamento fazendo com que sejam reutilizadas apenas com chamadas
+Dados de entrada e saída
+Funções podem receber dados de entrada (parâmetros ou argumentos)
+Funções podem ou não retornar uma saída
+Em orientação a objetos, funções em classes recebem o nome de "métodos"
+
+Debugging com Visual Studio, e uma funcinalidade que temos para debugar o nosso codigo fonte e executar passo a passo para verificarmos as modificacoes nas variaveis ao longo da execucao passo a passo
+Teclas
+F9 - marcar/desmarcar breakpoint
+F5 - iniciar/continuar o debug
+F10 - executar um passo (pula função)
+F11 - executar um passo (entra na função)
+SHIFT+F11 - sair do método em execução
+SHIFT+F5 - parar debug
+Janelas
+Watch (expressões personalizadas)
+Autos (expressões "interessantes" detectadas pelo Visual Studio)
+Locals (variáveis locais do escopo aonde estiver na linha de execucao)
+
+Estrutura "enquanto"
+while ( condição ) {
+comando 1
+comando 2
+}
+Regra:
+V: executa e volta
+F: pula fora
+
+Estrutura "para"
+for ( início ; condição ; incremento) {
+comando 1
+comando 2
+}
+
+Inicio:
+Executa somente na primeira vez
+
+Condicao:
+V: executa e volta
+F: pula fora
+
+Incremento:
+Executa toda vez depois de voltar
+
+While e usado quando nao conhecemos o numero total de repeticoes, e o for e usado quando conhecemos o numero total de repeticoes

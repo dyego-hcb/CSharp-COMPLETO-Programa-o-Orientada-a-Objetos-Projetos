@@ -1,0 +1,14 @@
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/bin/Debug/net8.0/sc03-exercicios-fixacao
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/bin/Debug/net8.0/sc03-exercicios-fixacao.deps.json
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/bin/Debug/net8.0/sc03-exercicios-fixacao.runtimeconfig.json
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/bin/Debug/net8.0/sc03-exercicios-fixacao.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/bin/Debug/net8.0/sc03-exercicios-fixacao.pdb
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/sc03-exercicios-fixacao.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/sc03-exercicios-fixacao.AssemblyInfoInputs.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/sc03-exercicios-fixacao.AssemblyInfo.cs
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/sc03-exercicios-fixacao.csproj.CoreCompileInputs.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/sc03-exercicios-fixacao.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/refint/sc03-exercicios-fixacao.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/sc03-exercicios-fixacao.pdb
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/sc03-exercicios-fixacao.genruntimeconfig.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-exercicios-fixacao/obj/Debug/net8.0/ref/sc03-exercicios-fixacao.dll

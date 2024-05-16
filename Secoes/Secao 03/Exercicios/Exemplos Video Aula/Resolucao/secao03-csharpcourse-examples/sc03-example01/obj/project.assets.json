@@ -1,0 +1,71 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net8.0": []
+  },
+  "packageFolders": {
+    "/home/mrzebodexxsz/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-example01/sc03-example01.csproj",
+      "projectName": "sc03-example01",
+      "projectPath": "/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-example01/sc03-example01.csproj",
+      "packagesPath": "/home/mrzebodexxsz/.nuget/packages/",
+      "outputPath": "/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/secao03-csharpcourse-examples/sc03-example01/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/mrzebodexxsz/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/home/mrzebodexxsz/.dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

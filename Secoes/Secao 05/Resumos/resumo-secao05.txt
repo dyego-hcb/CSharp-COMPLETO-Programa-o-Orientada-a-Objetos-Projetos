@@ -1,0 +1,129 @@
+-- Resumo da Seção 5: Construtores, palavra this, sobrecarga, encapsulamento - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse capitulo, iremos ver alguns recursos para melhorar o desing deixar nossa solucao mais elegante, flexivel e segura.
+A parte de encapsulamente e muito importante pois e um dos 3 pilares da programcao orientada a objetos, que e herancas, encapsulamento e polimorfismo.
+
+Construtor
+É uma operação especial da classe, que executa no momento da instanciação do objeto, quando damos o comando new
+
+Usos comuns:
+Iniciar valores dos atributos
+Permitir ou obrigar que o objeto receba dados / dependências no momento de sua  instanciação (injeção de dependência)
+Se um construtor customizado não for especificado, a classe disponibiliza o construtor padrão:
+Produto p = new Produto();
+
+É possível especificar mais de um construtor na mesma classe (sobrecarga)
+
+Nessa capitulo, foi porposta uma melhoria para instanciarmos os produtos ja com os seus atributos preenchidos, utilizando um construtor com argumentos, visto que por padrao o construtor sem argumentos funciona tambem, mas nao instancia os objetos com seus dados e sim nulo ou com 0
+Com isso, ao criar um construtor com argumentos, o construtor sem argumentos nao e valido, pois na implementacao da sua classe tem um construtor com argumentos e esses argumentos devem ser passados por parametro para que seja possivel instanciar um objeto daquela classe.
+
+Sobrecarga
+É um recurso que uma classe possui de oferecer mais de uma operação com o mesmo nome, porém com diferentes listas de parâmetros.
+Isso e muito comum em programcao orientada a objetos, o que muda e apenas os parametros como citado.
+
+Sintaxe alternativa para inicializar valores:
+Com construtor
+Produto p = new Produto("TV", 900.00, 10);
+
+Produto p = new Produto {
+Nome = "TV",
+Preco = 900.0,
+Quantidade = 0
+};
+Produto p2 = new Produto() {
+Nome = "TV",
+Preco = 900.0,
+Quantidade = 0
+};
+Isso funciona mesmo se a classe não possuir construtores implementados
+
+Palavra this
+É uma referência para o próprio objeto
+
+Usos comuns:
+Diferenciar atributos de variáveis locais (Java)
+Referenciar outro construtor em um construtor
+Passar o próprio objeto como argumento na chamada de um método ou construtor
+
+Em C# nao tem muito problema em diferenciar atributos de variáveis locais, pois no C# adotamos um padrao de nome que nao ira gerar esse problema, como nome de atributos sua primeira letra e maiuscula e variavels locais a primeira letra e minuscula
+
+atributos -> sao instanciados na memoria heap e possuem um endereco dessa memoria associado a uma area na memoria stack 
+variáveis locais -> sao os paremtros que chegam no construtor
+
+Referenciar outro construtor em um construtor, em C# podemos utilizar o : this(), isso fara com que execute o construtor que esta refernciado no this, isso fara com que pegue os dados que estao no outro construtor
+
+Passar o próprio objeto como argumento na chamada de um método ou construtor, utilizando o this no construtor conseguimos passar o probrio objeto como argumento na chamada do metodo ou construtur, fazendo uma associacao esse objeto
+
+Encapsulamento
+É um princípio que consiste em esconder detalhes de implementação de um componente, expondo apenas operações seguras e que o mantenha em um estado consistente.
+
+Regra de ouro: 
+o objeto deve sempre estar em um estado consistente, e a própria classe deve garantir isso.
+
+Opção 1: implementação manual
+Todo atributo é definido como private
+Implementa-se métodos Get e Set para cada atributo, conforme regras de negócio
+Nota: não é usual na plataforma C#
+
+Se utilizarmos atributos publicos, estamos deixando ele exposta, e isso pode prejudicar a integridade dos dados, onde como o mesmo esta exposta, seria possivel alterar o seu valor
+Encapsulamento e um dos pilares mais importantes na programcao orientada a objetos, pois garante a integridade dos valores do objeto, sendo alterados apenas quando necessario e solicitado.
+Em C# temos um padrao para atributos privado, que e:
+_nomeVar
+.Length -> Retorna o tamanho da string
+Nem sempre usaremos get e set para todos os atributos, pois ha atributos que nao devem ser modificados pelo usuario
+
+Propriedades
+São definições de métodos encapsulados, porém expondo uma sintaxe similar à de atributos e não de métodos
+
+https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/classes-and-structs/properties
+
+Uma propriedade é um membro que oferece um mecanismo flexível para ler, gravar ou calcular o valor de um campo particular. As propriedades podem ser usadas como se fossem atributos públicos, mas na verdade elas são métodos
+especiais chamados "acessadores". Isso permite que os dados sejam acessados facilmente e ainda ajuda a promover a segurança e a flexibilidade dos métodos.
+Para isso, usamos a seguite sintaxe
+public tipo_retorno NomeAtributo {
+get { return _nomeAtributo; }
+set {
+     _nomeAtributo = value;
+    }
+}
+O value e o parameto passado quando chama o metodo set
+Chama-se os metodos de get e set apenas peno NomeAtributo, chamando apenas o NomeAtributo temos o get e fazendo com que o NomeAtributo receba algo o set
+
+Propriedades autoimplementadas
+É uma forma simplificada de se declarar propriedades que não necessitam lógicas particulares para as operações get e set.
+public double NomeAtributo { get; private set; }
+Ao colocar o private, fala que essa acao nao e acessada por outros arquivos
+Quando se tem uma logica particular em algum set ou get, deve-se implementar uma propertie, nao sendo possivel o uso de auto-propertie
+
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties
+
+Ordem sugerida
+Atributos privados
+Propriedades autoimplementadas
+Construtores
+Propriedades customizadas
+Outros métodos da classe
+
+Modificadores de acesso
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/access-modifiers
+
+Membros
+própria classe / subclasses no assembly / classes do assembly / subclasses fora do assembly / classes fora do assembly
+public x x x x x
+protected internal x x x x
+internal x x x
+protected x x  x
+private protected x x
+private x
+
+assembly -> O mesmo projeto
+
+Classes
+Acesso por qualquer classe
+public class Product
+Acesso somente dentro do assembly
+internal class Product
+class Product
+Acesso somente pela classe-mãe
+private class Product
+Nota: classe aninhada, por padrão, é private

@@ -1,6 +1,6 @@
-# Curso de C# COMPLETO Programação Orientada a Objetos + Projetos
+# C# COMPLETO Programação Orientada a Objetos + Projetos
 
-Este repositório contém os materiais e projetos desenvolvidos durante o curso de C# COMPLETO Programação Orientada a Objetos + Projetos.
+Este repositório contém todo o meu trabalho e progresso no curso "C# COMPLETO Programação Orientada a Objetos + Projetos". O curso é completo e abrange desde os fundamentos da programação orientada a objetos e da linguagem C#, até tópicos mais avançados e específicos da plataforma C# e .NET.
 
 ## Seção 3: Recapitulação de Lógica de Programação usando C#
 

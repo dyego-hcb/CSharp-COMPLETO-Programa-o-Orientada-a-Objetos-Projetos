@@ -1,0 +1,14 @@
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/bin/Debug/net8.0/sc04-example-com-orientacao-objetos
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/bin/Debug/net8.0/sc04-example-com-orientacao-objetos.deps.json
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/bin/Debug/net8.0/sc04-example-com-orientacao-objetos.runtimeconfig.json
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/bin/Debug/net8.0/sc04-example-com-orientacao-objetos.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/bin/Debug/net8.0/sc04-example-com-orientacao-objetos.pdb
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/sc04-example-com-orientacao-objetos.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/sc04-example-com-orientacao-objetos.AssemblyInfoInputs.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/sc04-example-com-orientacao-objetos.AssemblyInfo.cs
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/sc04-example-com-orientacao-objetos.csproj.CoreCompileInputs.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/sc04-example-com-orientacao-objetos.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/refint/sc04-example-com-orientacao-objetos.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/sc04-example-com-orientacao-objetos.pdb
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/sc04-example-com-orientacao-objetos.genruntimeconfig.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc04-example-com-orientacao-objetos/obj/Debug/net8.0/ref/sc04-example-com-orientacao-objetos.dll

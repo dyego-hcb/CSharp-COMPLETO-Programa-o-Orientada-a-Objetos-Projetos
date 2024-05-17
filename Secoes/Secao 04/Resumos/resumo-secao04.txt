@@ -1,0 +1,99 @@
+-- Resumo da Seção 4: Classes, atributos, métodos, membros estáticos - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nessa secao, iremos aborda o tema sobre programcao orientada a objeto, onde iremos ver as vatanges de usar a programacao orientada a objtos.
+
+Em primeira instancia, iremos desenvolver um programa, onde seu objetivo e calcular a area de um triangulo sem programacao orientada a objetos, depois iremos resolver com programacao orientada a objetos, e iremos discutir as diferencas e vantagens de se usar programacao orientada a objetos.
+
+Uma classe representa uma entidade, essa entidade pode ser qualquer coisa, como o do exemplo da video aula, o triangulo pode ser uma entidade, fazendo com que essa classe, possua os dados daquela entidade.
+
+Classe
+É um tipo estruturado que pode conter (membros):
+Atributos (dados / campos)
+Métodos (funções / operações)
+
+A classe também pode prover muitos outros recursos de orientacao a objetos, tais como:
+Construtores
+Sobrecarga
+Encapsulamento
+Herança
+Polimorfismo
+
+Exemplos:
+Entidades: Produto, Cliente, Triangulo
+Serviços: ProdutoService, ClienteService, EmailService, StorageService
+Controladores: ProdutoController, ClienteController
+Utilitários: Calculadora, Compactador
+Outros (views, repositórios, gerenciadores, etc.)
+
+Todas as aplicacoes a partir daqui serao representadas por classe,  visto que as classes sao base na programacao orientada a objetos
+
+Ao criarmos uma classe, podemos definir seus atributos em seu escopo, esses atributos devem seguir o padrao do C#, com letra Maiuscula.
+Com a utilizacao de classes, eliminamos a criacao de muitas variaveis para a criacao de um objeto composto, fazendo com que instanciamos apenas o objeto composto, sendo apenas 1 variavel e nao n para criar eses objeto composto
+Para instancia uma classe, devemos utilizara seguinte sintaxe:
+
+NomeClasse nomeVarClasse = new NomeClasse();
+
+A instanciacao e alocacao dinamica de memoria, onde e criado uma caixinha na memoria stack, onde essa caixinha, tera a referencia de um endereco na memoria heap, na memoria heap, contera todos os dados daquela classe
+Variaveis criadas no escopo da aplicacao, sao intanciadas na memoria stack, caso seja uma variavel simples o valor ficara salvo na stack, caso seja um valor composto, na stack fica o endereco daquele objeto na memoria heap.
+
+Stack -> Estaticas
+Heap -> Alocacao dinamica
+
+Para acessar um atributo de uma instancia de uma classe basta usar o . como nomeVarClasse.nomeAtributo
+
+Usar a programcao orientada a objetos, deixa o codigo mais limpo.
+
+Com o uso de classes, podemos definir criar alguns metodos para essa classe para realizar alguma determinada acao que e especifica daquela classe, fazendo com que haja o reaproveitamento de codigo, fazendo com que com apenas a chamada desse metodo passando parametros se necessario realize sempre aquela determinada acao, como por exemplo
+no exemplo passado em aula, para calcular a area do triangulo, em vez de faze isso no progama principal, criamos um metodo na classe triangulo que calcula a sua area, fazendo com que ocorra a delegacao de resposabilidade.
+Instancias de classes podem chamar os metodos utilizando o nomeVarClasse.NomeFunc
+Para criamos a funcao devemos seguir a sintaxe:
+
+public tipo_retorno NomeFunc(parametros)
+
+Quais são os benefícios de se calcular a área de um triângulo por meio de um
+MÉTODO dentro da CLASSE Triangulo?
+Reaproveitamento de código: nós eliminamos o código repetido (cálculo das áreas dos triângulos x e y) no programa principal.
+Delegação de responsabilidades: quem deve ser responsável por saber como calcular a área de um triângulo é o próprio triângulo. A lógica do cálculo da área não deve estar em outro lugar.
+
+O prefixo public indica que o atributo ou membros pode ser usado em outro arquivos
+Dentro de classe possuimos membros que sao atributos e metodos
+
+UML e uma linguagem grafica para desenha varios tipos de projetos, incluido projetos de classes, isso e muito usado para a documentacao de projetos
+No UML uma classe e definida pela seguinte ondem primeiro retangulo nome da classe, segundo retangulo atributos, terceiro retangulo metodos da classe
+
+Quando tentamos imprimir um objeto instanciado, se nao usarmos o toString, ira mostra o namespace e o nome da classe
+
+Discussão
+Toda classe em C# é uma subclasse da classe Object
+Object possui os seguintes métodos:
+GetType - retorna o tipo do objeto
+Equals - compara se o objeto é igual a outro
+GetHashCode - retorna um código hash do objeto
+ToString - converte o objeto para string
+
+Como e um metodo da classe Object, devemos sobrescrever esse metodos, usando o override na declaracao da funcao
+
+Membros estáticos
+Também chamados membros de classe, atributos e metodos 
+Em oposição a membros e instância
+São membros que fazem sentido independentemente de objetos. Não precisam de objeto para serem chamados. São chamados a partir do próprio nome da classe.
+
+Aplicações comuns:
+Classes utilitárias -> Math.Sqrt(double)
+Declaração de constantes
+Uma classe que possui somente membros estáticos, pode ser uma classe estática também. Esta classe não poderá ser instanciada.
+Uma operacao statica sempre da o mesmo resultado
+Nao podemos chamar uma funcao e metodos nao estatica que esta dentro de uma classe em uma funcao statica
+
+No problema dos triângulos, cada
+triângulo possui sua área.
+Area() é uma operação concernente ao
+objeto: cada triângulo possui sua área.
+x.Area()
+6.0
+y.Area()
+7.5638
+Já no caso da calculadora, os valores dos
+cálculos não mudam para calculadoras
+diferentes, ou seja, são cálculos estáticos. O
+valor de Pi também é estático.

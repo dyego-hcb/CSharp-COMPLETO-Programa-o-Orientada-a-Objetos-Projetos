@@ -1,0 +1,14 @@
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/sc06-example05.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/sc06-example05.AssemblyInfoInputs.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/sc06-example05.AssemblyInfo.cs
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/sc06-example05.csproj.CoreCompileInputs.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/bin/Debug/net8.0/sc06-example05
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/bin/Debug/net8.0/sc06-example05.deps.json
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/bin/Debug/net8.0/sc06-example05.runtimeconfig.json
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/bin/Debug/net8.0/sc06-example05.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/bin/Debug/net8.0/sc06-example05.pdb
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/sc06-example05.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/refint/sc06-example05.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/sc06-example05.pdb
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/sc06-example05.genruntimeconfig.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example05/obj/Debug/net8.0/ref/sc06-example05.dll

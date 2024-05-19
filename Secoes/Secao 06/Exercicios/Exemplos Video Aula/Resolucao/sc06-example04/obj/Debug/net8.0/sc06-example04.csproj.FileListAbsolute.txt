@@ -1,0 +1,14 @@
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/bin/Debug/net8.0/sc06-example04
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/bin/Debug/net8.0/sc06-example04.deps.json
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/bin/Debug/net8.0/sc06-example04.runtimeconfig.json
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/bin/Debug/net8.0/sc06-example04.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/bin/Debug/net8.0/sc06-example04.pdb
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/sc06-example04.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/sc06-example04.AssemblyInfoInputs.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/sc06-example04.AssemblyInfo.cs
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/sc06-example04.csproj.CoreCompileInputs.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/sc06-example04.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/refint/sc06-example04.dll
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/sc06-example04.pdb
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/sc06-example04.genruntimeconfig.cache
+/home/mrzebodexxsz/Documents/Workstations/WS-Visual-Studio/sc06-example04/obj/Debug/net8.0/ref/sc06-example04.dll

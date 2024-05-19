@@ -1,0 +1,197 @@
+-- Resumo da Seção 6: Comportamento de memória, arrays, listas - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse capitulo, iremos abordar os fundamentos de variaveis de ponteiros, variavels de valor, vendo suas diferencas, iremos aprender a desalocacao de memoria utilizando garbage collector, como fazer um tipo valor aceitar um valor nulo, iremos abordar tambem o tema de modificadores de paremetros, o params que serve para passar como argumentos varios parametros de uma vez so, modificadores ref e alt, box e unboxing.
+Tambem iremos ver sobre arrays/vetores e matrizes, onde arrays/vetores sao um arranjo unidimencional e as matrizes sao bidimensonal, possuindo linhas e colunas.
+Tambem iremos ver sobre listas que e uma estrutura de dados mais utilizada.
+
+
+Tipos referência vs. tipos valor
+
+Classes são tipos referência
+Variáveis cujo tipo são classes não devem ser entendidas como caixas, mas sim “tentáculos” (ponteiros) para caixas
+
+Valor "null"
+Tipos referência aceitam o valor "null", que indica que a variável aponta pra ninguém
+
+Structs são tipos valor
+A linguagem C# possui também tipos valor, que são os "structs". Structs são CAIXAS e não ponteiros.
+
+C# Struct(tipos basicos)-> sbyte, short, int, long, byte, ushort, uint, ulong, float, double, decimal, char, bool, DateTime, TimeSpan
+
+Nas variaveis do tipo referencia, quando atribuimos uma variavel a outra, essa variavel passa a apontar para o endereco no qual aquela variavel que esteja a direita do sinal de igualdade aponta,
+ja nas varaiveis do tipo valor, o que acontece e que faz a copia do conteudo daquela variavel do lado direito da igualdade para a outra
+
+Em C# e possivel criar nossos proprios structs, basta utilar o struct, esse struct e similar a classe, so nao contera com alguns recursos da classe, e ele se comporta como variavel do tipo struct, sendo criado uma caixinha na memoria stack.
+
+Structs devem ser incializados, se nao nao conseguimos mostrar seu conteudo, para incialzizar uma struct, nao precisa do new porem ele aceita e cria com os valores 0, basta atribuir os valores em seus atributos.
+
+Valores padrão
+Quando alocamos (new) qualquer tipo estruturado (classe, struct, array), são atribuídos valores padrão aos seus elementos
+números: 0
+bool: False
+char: caractere código 0
+objeto: null
+
+Lembrando: uma variável apenas declarada, mas não instanciada, inicia em estado "não atribuída", e o próprio compilador não permite que ela seja acessada.
+
+Tipos referência vs. tipos valor
+CLASSE 
+Vantagem: usufrui de todos recursos OO
+Variáveis são ponteiros 
+Objetos precisam ser instanciadas usando new, ou apontar para um objeto já existente.
+Aceita valor null 
+Suporte a herança 
+Y = X; "Y passa a apontar para onde X aponta"
+Objetos instanciados no heap 
+Objetos não utilizados são desalocados em um momento próximo pelo garbage collector
+
+STRUCT
+Vantagem: é mais simples e mais performático
+Variáveis são caixas 
+Não é preciso instanciar usando new, mas é possível
+Não aceita valor null
+Não tem suporte a herança (mas pode implementar interfaces)
+Y = X; "Y recebe uma cópia de X"
+Objetos instanciados no stack
+"Objetos" são desalocados imediatamente quando seu escopo de execução é finalizado
+
+Desalocação de memória - garbage collector e escopo local
+
+Garbage collector
+É um processo que automatiza o gerenciamento de memória de um programa em execução
+O garbage collector monitora os objetos alocados dinamicamente pelo programa (no heap), desalocando aqueles que não estão mais sendo utilizados.
+
+Quando um objeto na memoria heap nao possui nenhum objeto na memoria stack apontando para ele, o garbage collector vai detectar que nao ha referencia para aquele objeto na memoria stack e futuramente sera desalocado.
+
+Desalocação por escopo
+Sao variavies que sao criadas dentro do escopo de algum metodo, seja uma funcao, um if, etc, se essa variavel nao estiver declarada em um escopo que engloba todos os outros, ela so ira aparece quando aquele escopo rodar, como por exemplo criar uma variavel dentro de um if, ela so sera criada quando o programa executar o que estiver dentro daquele if, e quando a execucao do if acaba, essa variavel e removida da memoria
+
+Objetos alocados dinamicamente, quando não possuem mais referência para eles, serão desalocados pelo garbage collector
+Variáveis locais são desalocadas imediatamente assim que seu escopo local sai de execução
+
+Nullable
+É um recurso de C# para que dados de tipo valor (structs) possam receber o valor null
+Uso comum:
+Campos de banco de dados que podem valer nulo (data de nascimento, algum valor numérico, etc.).
+Dados e parâmetros opcionais.
+
+Sintaxe:
+Nullable<tipo_var> nome_var = null;
+tipo_var? nome_var = null;
+
+Métodos:
+GetValueOrDefault -> Pega o valor se existir, caso nao exista pega o valor padrao daquela var
+HasValue -> Retorna true or false se ha ou nao valor na variavel
+Value (lança uma exceção se não houver valor) -> Pega o valor direto to x, se nao tiver uma execao e lancada para valores nulos
+Um nullable não pode ser atribuído para um struct comum
+Valor default para tipos:
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/default-value-expressions
+
+Operador de coalescência nula ?? -> Para jogar o valor de uma variavel nullable eu uma nao nullable, deve-se usar o operador de coalescência ?? q faz com que caso o valor seja nulo, coloque um valor padrao, o valor que ficar a direita do ??
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-conditional-operator
+
+Vetores
+Em programação, "vetor" é o nome dado a arranjos unidimensionais
+Arranjo é uma estrutura de dados:
+Homogênea (dados do mesmo tipo)
+Ordenada (elementos acessados por meio de posições)
+Alocada de uma vez só, em um bloco contíguo de memória
+
+Sintaxe de declaracao:
+tipo_var[] nome_vet = new tipo_var[Tamanho]
+
+Vantagens:
+Acesso imediato aos elementos pela sua posição
+Desvantagens:
+Tamanho fixo
+Dificuldade para se realizar inserções e deleções, pois nao podemos deixa buracos, deve-se fazer a realocacao
+
+Em arrays/vetores, o primeiro indice e sempre 0.
+Quando instanciamos um vetor do tipo classe, devemos instanciar objetos dessa classe para ser inserido no vetor de classes.
+
+Modificador params -> Ao utilizar a palavra params antes do parametro do vetor, voce pode enviar os objetos sem precisar instanciar um vetor
+
+Modificador ref -> Ao utilizar o modificador ref, podemos fazer referencia a variavel que esta no escopo que chamou a funcao, fazendo com que seja possivel alterar o seu valor, porem a variavel deve ser iniciada
+
+Modificador out -> O modificador out é similar ao ref (faz o parâmetro ser uma referência para a variável original), mas não exige que a variável original seja iniciada
+
+Diferença:
+A variável passada como parâmetro ref DEVE ter sido iniciada
+A variável passada como parâmetro out não precisa ter sido iniciada
+
+Conclusão: ambos são muito similares, mas ref é uma forma de fazer
+o compilador obrigar o usuário a iniciar a variável.
+
+Nota: ambos são considerados "code smells" (design ruim) e devem ser evitados.
+
+Boxing
+É o processo de conversão de um objeto tipo valor para um objeto tipo referência compatível
+
+Unboxing
+É o processo de conversão de um objeto tipo referência para um objeto tipo valor compatível
+
+Laço for each
+Sintaxe opcional e simplificada para percorrer coleções
+Leitura: "para cada objeto 'obj' contido em vect, faça:"
+
+foreach (tipo_obj nome_obj in nome_vect) {
+}
+
+Listas
+Referência: https://msdn.microsoft.com/en-us/library/6sh2ey19(v=vs.110).aspx
+Lista é uma estrutura de dados:
+Homogênea (dados do mesmo tipo)
+Ordenada (elementos acessados por meio de posições)
+Inicia vazia, e seus elementos são alocados sob demanda
+Cada elemento ocupa um "nó" (ou nodo) da lista
+
+Classe: List
+Namespace: System.Collections.Generic
+
+Vantagens:
+Tamanho variável
+Facilidade para se realizar inserções e deleções
+
+Desvantagens:
+Acesso sequencial aos elementos *
+
+Sintaxe de instanciacao:
+List<tipo> nome_list = new List<tipo>()
+
+Listas comecao com o index 0 tambem semelhante ao vetor
+
+Inserir elemento na lista: Add -> Adciona no final, Insert -> Pode escolher a posicao
+Tamanho da lista: Count
+Encontrar primeiro ou último elementos da lista que satisfaça um predicado:
+list.Find -> Recebe como argumento uma funcao que faz uma determinada acao, ou expressao lambda, list.FindLast -> Recebe como argumento uma funcao que faz uma determinada acao, ou expressao lambda
+Encontrar primeira ou última posição de elemento da lista que satisfaça um
+predicado: list.FindIndex, list.FindLastIndex -> Recebem como argumento uma funcao que faz uma determinada acao, ou expressao lambda
+Filtrar a lista com base em um predicado: list.FindAll -> Recebe como argumento uma funcao que faz uma determinada acao, ou expressao lambda e retorna uma lista
+Remover elementos da lista: Remove -> espera por parametro um objeto do tipo da lista, RemoveAll -> -> Recebe como argumento uma funcao que faz uma determinada acao, ou expressao lambda, RemoveAt -> Remove pela posicao, RemoveRange -> Remove os elementos que estao em uma faixa determinada pela posicao incial e uma contagem
+Metodo remove se nao encontrar n faz nada
+
+Assuntos pendentes:
+Generics
+Predicados (lambda) -> Pega um valor e retorna true or false conforme a logica implementada, funcao lambda e uma funcao anonima =>
+
+Matrizes
+Em programação, "matriz" é o nome dado a arranjos bidimensionais
+Arranjo é uma estrutura de dados:
+Homogênea (dados do mesmo tipo)
+Ordenada (elementos acessados por meio de posições)
+Alocada de uma vez só, em um bloco contíguo de memória
+
+Vantagens:
+Acesso imediato aos elementos pela sua posição
+
+Desvantagens:
+Tamanho fixo
+Dificuldade para se realizar inserções e deleções
+
+Declaracao:
+tipo[,] nome_mat = new tipo[num_linhas, num_coluna];
+
+Propriedade Length -> Quantos elementos no total, Rank -> Quantas linhas e GetLength -> Quantas Colunas ou Linhas, depende do paramentro 0 = Linha 1 = Coluna
+
+Matriz e semelhante ao vetor, deve ser instanciada de uma vez so, falando seu Tamanho
+Matriz possui linhas e colunas, inicadas em 0 0

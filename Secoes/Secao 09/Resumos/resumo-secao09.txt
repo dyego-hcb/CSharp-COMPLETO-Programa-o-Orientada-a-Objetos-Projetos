@@ -1,0 +1,62 @@
+-- Resumo da Seção 9: Enumerações, composição - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse capitulo, comeca a parte interemdiara do curso.
+A parte de enumeracoes e composicao nos dara a base para criar ciclos de vidas de entidades, representado pelas enumeracoes, e composicao de objetos
+
+Enumerações
+É um tipo especial que serve para especificar de forma literal um conjunto de constantes relacionadas
+Palavra chave em C#: enum
+Nota: enum é um tipo valor
+Vantagem: melhor semântica, código mais legível e auxiliado pelo compilador nao deixando colocar valores fora do que foi definido
+Referência: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/enum
+
+Por boas praticas, iremos modelar a organizacao do projeto, baseando-se no padrao MVC, como estamos apenas mechendo com classes, iremos criar as pastas Entities, dentro dela ira conter as classes que compoe a logica do nosso negocio, e tambem uma pasta chamada enums com os arquivos de enumeracao para delegar um ciclo de vida de uma entidade.
+
+Conversões
+Para o tipo original: use casting
+OrderStatus os1 = (OrderStatus)2;
+int n1 = (int)OrderStatus.Processing;
+
+string - enum:
+string txt = OrderStatus.PendingPayment.ToString();
+OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+Console.WriteLine(os);
+Console.WriteLine(txt);
+
+Mas, dependendo da versão do compilador C#, isso pode dar problema. Se for o caso, por favor tente deste jeito:
+
+OrderStatus os = (OrderStatus)Enum.Parse(typeof(OrderStatus), "Delivered");
+
+Se mesmo assim ainda tiver dando erro, há ainda uma terceira forma:
+
+OrderStatus os;
+Enum.TryParse("Delivered", out os);
+
+Notação UML -> <<enum>>
+
+Categorias de classes
+Em um sistema orientado a objetos, de modo geral "tudo" é objeto.
+Por questões de design tais como organização, flexibilidade, reuso, delegação, etc., há várias categorias de classes:
+
+Entities -> Sao as entidades de negocios
+Controllers -> E o cara que faz o meio de campo entre a tela e o sistema
+Services -> servicos
+Views -> Telas do Sistema
+Repositories -> Objetos resposnsaveis para acessar o bd
+
+Composição
+É um tipo de associação que permite que um objeto contenha outro
+
+Relação "tem-um" ou "tem-vários"
+
+Vantagens
+Organização: divisão de responsabilidades
+Coesão, cada objeto tem sua resposabilidade definida
+Flexibilidade
+Reuso
+
+Nota: embora o símbolo UML para composição (todo-parte) seja o diamante preto, neste contexto estamos chamando de composição qualquer associação tipo "tem-um" e "tem-muitos".
+
+Em construtores não colocamos a instanciacao de listas, pois não e usual fazer isso, visto que uma lista deve ser alterada apenas pelo objeto que a compoe
+
+StringBuilder monta string de forma mais perfomatica

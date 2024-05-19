@@ -20,3 +20,5 @@ Nesta seção, aprimoramos nossos conhecimentos em Git e Github, ferramentas mui
 ### Resumo
 
 Na pasta [Resumo](./Resumos/), você encontrará um resumo detalhado do que foi feito na seção. Este resumo inclui explicações detalhadas dos conceitos e exemplos de código.
+
+Espero que você encontre este repositório útil e informativo. Sinta-se à vontade para explorar e aprender!

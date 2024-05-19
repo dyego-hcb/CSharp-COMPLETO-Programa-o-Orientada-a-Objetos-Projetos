@@ -1,0 +1,196 @@
+-- Resumo da Seção 8: Bônus: nivelamento Git e Github - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nessa secao, iremos aprimorar nossos conhecimentos em Git e Gtihub, visto que e muito usado no mercado, onde esssas ferramentas sao muito uteis para o desenvolvimento de projetos.
+
+GIT - é um sistema de versionamento: você controla as modificações de um projeto por meio de versões chamadas "commits".
+
+Github
+É um serviço online de hospedagem de repositórios Git remotos.
+Possui uma interface gráfica web: github.com
+É uma plataforma social (usuários, página de perfil, seguidores, colaboração, etc.). Dica: currículo!
+Maior serviço do mundo de hospedagem de projetos de código aberto
+Modelo de cobrança: gratuito para projetos de código aberto, pago para projetos privados
+Alternativas: BitBucket, GitLab, etc.
+
+Repositório remoto e local:
+Um projeto controlado pelo Git é chamado de repositório de versionamento.
+
+Tipicamente uma cópia "oficial" do repositório fica salvo em um servidor (repositório remoto).
+
+Cada pessoa que trabalha no projeto pode fazer uma cópia do repositório para seu computador (repositório local). 
+A pessoa então faz suas alterações no projeto (novos commits) e depois salva as alterações no servidor.
+
+Instalação do Git no computador
+Windows:
+https://git-scm.com/downloads
+
+Passo a passo: clickando em next, tirar interface grafica, o resto e padrao, e sobrescreve para main novo padrao do git, git path, e oenssl libry marcados, seleciona opcao de quebra de linha do windows, terminal selecionar o mintty, default, gerenciador de credencial none, enable cahce, nenhuma, install
+Linux e Mac:
+Geralemente vem instalado, caso nao tiver basta usar os gerenciador de pacotes
+
+Verificar se o git esta instalado basta abrir o terminar edigiar git –version
+
+Configurando sua identificação no Git
+git config --global user.name "Seu nome"
+git config --global user.email "Seu email de cadastro do Github"
+git config -–list -> Mostra a config salvas
+
+Configuração para ver arquivos ocultos (Windows)
+Iniciar -> Opções do explorador de arquivos
+DESMARCAR: "Ocultar as extensões dos tipos de arquivos conhecidos"
+MARCAR: "Mostrar arquivos, pastas e unidades ocultas"
+
+Configurar chave SSH para o Github
+SSH é um protocolo para comunicação de dados com segurança.
+O Github aboliu a autenticação somente com usuário e senha.
+A ideia básica é cadastrar previamente quais computadores podem acessar o
+Github em seu nome. Outros computadores não conseguem acessar.
+Para isto você deve:
+(1) Gerar uma chave SSH no seu computador
+(2) Cadastrar essa chave no seu Github
+
+Passo a passo de gerar uma chave e adicionar no git nas 3 plataformoas
+https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+Passo a passo: salvar primeira versão de um projeto no Github
+
+git init ->  Cria repositorio de versonamento git nesta pasta
+git add . -> Adiciona todos os itens da pasta, e envia para uma area temporaria chamada stage, essa stage e onde colocamos os arquivos que queremos salvar na próxima versao
+git commit -m "Mensagem explicativa" -> Comando que salva a versao
+git branch -M main -> Garantir o nome main e não master
+git remote add origin git@github.com:seuusuario/seurepositorio.git -> Referencia  um repositorio no github a aquele repositorio local no github, usar link ssh
+git push -u origin main -> Envia as mudancas para o repositorio no github
+
+Passo a passo: salvar uma nova versão
+
+git status -> Mostra o status do projeto, as diferenças entre a main do github e o repositorio local
+git add . -> Adiciona todos os itens da pasta, e envia para uma area temporaria chamada stage, essa stage e onde colocamos os arquivos que queremos salvar na próxima versao
+git commit -m "Mensagem explicativa" -> Comando que salva a versao
+git push -> Envia as mudancas para o repositorio no github
+
+Demo: clonar e modificar um projeto de um repositório remoto que você tem permissão para alterar
+
+git clone git@github.com:seuusuario/seurepositorio.git
+git add .
+git commit -m "Mensagem explicativa"
+git push
+
+Verificando o histórico de versões
+
+git log
+
+Listagem resumida:
+
+git log –oneline
+
+Git status -> informa o status do proejto, se tem alguma coisa que foi modificada, deletada, adicionada, git add -> adiocna os arquivos na area de stage que e a area onde os aquivos vao ser salvos naquela versao, e stage -> area onde as mudancas ficam para serem salvas commitadas, podendo conter 1 alteracao especificas ou todas
+
+Git diff
+Comando que mostra a diferença entre arquivos modificados
+Dica: utilizar o VS Code em source control, que mostra graficamente as diferenças
+
+Git checkout
+Permite modificar temporariamente os arquivos do projeto ao estado de um dado commit ou branch
+
+Código do commit, HEAD
+Cada commit possui um código, que pode ser utilizado para referenciar o commit
+O último commit do histórico do branch corrente também pode ser referenciado pela palavra HEAD
+É possível referenciar um commit N versões antes de HEAD usando ~N, por exemplo:
+HEAD~1 (penúltimo commit)
+HEAD~2 (antepenúltimo commit)
+
+IMPORTANTE: antes de fazer o checkout para voltar para HEAD, certifique-se de que não haja mudanças nos arquivos. Se você acidentalmente mudou alguma coisa, desfaça as modificações usando:
+git reset -> Tira do stage 
+git clean -df
+git checkout -- . -> Limpa modificacoes
+
+Para voltar ao estado original, dar o checkout na main
+
+Arquivo .gitignore
+É um arquivo que indica o que NÃO deve ser salvo pelo Git.
+Geralmente o arquivo .gitignore fica salvo na pasta principal do repositório. Mas também é possível salvar outros arquivos .gitignore em subpastas do repositório, para indicar o que deve ser ignorado por cada subpasta.
+
+Casos comuns de arquivos que não devem ser salvos pelo Git:
+Arquivos compilados
+Linguagens compiladas (C, C++, Java, C#, etc.) geram arquivos de código compilado para executar o programa localmente.
+
+Arquivos de bibliotecas externas usadas no projeto
+Projetos reais utilizam bibliotecas externas (programas prontos disponíveis na Internet). Por exemplo, projetos mJavaScript com NPM tipicamente salvam uma subpasta "node_modules" na pasta do seu projeto.
+
+Arquivos de configuração da sua IDE
+IDE's podem salvar uma subpasta com arquivos de configuração na pasta do projeto (exemplo: .vscode).
+
+Arquivos de configuração do seu sistema
+Por exemplo, sistemas Mac podem gravar uma subpasta .ds_store na pasta do projeto.
+
+Resolvendo problemas comuns que acontecem no desenvolvimento:
+
+Como remover arquivos da área de stage
+git status
+git reset
+
+Como desfazer modificações não salvas
+git status
+git reset
+git clean -df
+git checkout -- .
+
+O que fazer quando abre o editor VIM
+Estas ações podem abrir o editor VIM no terminal:
+Fazer um commit sem mensagem
+Fazer um merge de três vias
+
+Habilitar o modo de edição:
+i
+
+Sair do VIM, salvando as alterações:
+<ESC>
+:wq
+<ENTER>
+
+Sair do VIM, sem salvar as alterações:
+<ESC>
+:q!
+<ENTER>
+
+Como desfazer o último commit
+Desfazer último commit sem desfazer as modificações nos arquivos:
+git status
+git reset --soft HEAD~1
+
+--soft não apaga as modificacoes
+
+Como deletar commits e também modificações nos arquivos
+Voltar o projeto ao estado de um dado commit (deletar commits e alterações
+posteriores a esse commit)
+git status
+git reset --hard <código do commit>
+
+Voltar o projeto ao estado do penúltimo commit:
+ATENÇÃO: ação destrutiva!
+git status
+git reset --hard HEAD~1
+
+Como atualizar o repositório local em relação ao remoto
+git status
+git pull <nome do remote> <nome do branch>
+
+Como resolver push rejeitado
+Não é permitido enviar um push se seu repositório local está atrasado em
+relação ao histórico do repositório remoto! 
+Você tem que atualizar o repositório local:
+git pull <nome do remote> <nome do branch>
+
+Vai abrir o vim, e vai pedir para fazer um commit para inserir os commits novos e o atualizado, ai e permitido da um push
+
+Resolvendo conflito -> quando mesclamos 2 historicos com modificacoes no mesmo arquivo
+Analise o código fonte
+Faça as edições necessárias
+Faça um novo commit
+
+Como sobrescrever um histórico no Github
+git push -f <nome do remote> <nome do branch>
+ATENÇÃO: ação destrutiva!
+
+Como apontar o projeto para outro repositório remoto
+git remote set-url origin git@github.com:seuusuario/seurepositorio.git

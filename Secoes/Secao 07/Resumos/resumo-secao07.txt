@@ -1,0 +1,160 @@
+-- Resumo da Seção 7: Tópicos especiais em C# - PARTE 1 - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse capitulo iremos aprender alguns topicos fora da programacao orientada a objetos, visando abranger a linguagem C# de forma mais completa
+
+Inferência de tipos: palavra var, no lugar declara o tipo da variavel podemos definir como var, isso vai fazer com que o C# infira na varivel qual o seu tipo mediante a sua inicializacao
+Sempre usar var, pode abrir brecha no descuido do programador
+
+switch-case
+Estrutura opcional a vários if-else encadeados, quando a condição envolve o teste do valor de uma variável, mais de 3 if-else usar switch case
+No switch e obrigatorio o uso do break
+
+Expressão condicional ternária
+Estrutura opcional ao if-else quando se deseja decidir um VALOR com base em uma condição.
+Sintaxe:
+( condição ) ? valor_se_verdadeiro : valor_se_falso
+
+Funções interessantes para string
+Formatar: ToLower(), ToUpper(), Trim()
+Buscar: IndexOf, LastIndexOf
+Recortar: Substring(inicio), Substring(inicio, tamanho)
+Substituir: Replace(char, char), Replace(string, string)
+Verificar String vazia = String.IsNullOrEmpty(str), String.IsNullOrWhiteSpace(str)
+Cortar a string com base a um caracter = str.Split(' ')
+Conversão para numero: int x = int.Parse(str), int x =Convert.ToInt32(str)
+Conversão de número: str = x.ToString(), str = x.ToString("C"), str = x.ToString("C3"), str = x.ToString("F2")
+
+DateTime
+Representa um INSTANTE, serve para guarda data e data e horario
+É um tipo valor (struct)
+https://msdn.microsoft.com/en-us/library/system.datetime(v=vs.110).aspx
+
+Agenda:
+Representação interna
+Instanciação: construtores, builders / conversão String -> DateTime
+Formatação: DateTime -> String
+
+Representação interna
+Um objeto DateTime internamente armazena:
+O número de "ticks" (100 nanosegundos) desde a meia noite do dia 1 de janeiro do ano 1 da era comum
+
+Instanciação
+Construtores
+DateTime(ano, mes, dia)
+DateTime(ano, mes, dia, hora, minuto, segundo) [opcional: kind]
+DateTime(ano, mes, dia, hora, minuto, segundo, milissegundo) [opcional: kind]
+Builders
+DateTime.Now
+DateTime.UtcNow
+DateTime.Today [time: 00:00:00]
+DateTime.Parse(string)
+DateTime.ParseExact(string, string)
+
+TimeSpan
+Representa uma DURAÇÃO, intervalo entre 2 isntantes
+É um tipo valor (struct)
+https://msdn.microsoft.com/en-us/library/system.timespan(v=vs.110).aspx
+
+Agenda:
+Representação interna
+Instanciação: construtores, fields, métodos From, Parse
+
+Representação interna
+Um objeto TimeSpan internamente armazena uma duração na forma de ticks (100 nanosegundos)
+
+Construtores
+TimeSpan()
+TimeSpan(ticks)
+TimeSpan(horas, minutos, segundos)
+TimeSpan(dias, horas, minutos, segundos)
+TimeSpan(dias, horas, minutos, segundos, milissegundos)
+
+TimeSpan.FromDays(1.5);
+TimeSpan.FromHours(1.5);
+TimeSpan.FromMinutes(1.5);
+TimeSpan.FromSeconds(1.5);
+TimeSpan.FromMilliseconds(1.5);
+TimeSpan.FromTicks(900000000L) -> Aceita so longs
+
+Propriedades DataTime
+Date (DateTime)
+Day (int)
+DayOfWeek (DayOfWeek)
+DayOfYear (int)
+Hour (int)
+Kind (DateTimeKind)
+Millisecond (int)
+Minute (int)
+Month (int)
+Second (int)
+Ticks (long)
+TimeOfDay (TimeSpan)
+Year (int)
+
+Uilizando o metodo TO e possivel converter para string
+
+Operações com Datetime
+DateTime x = ...
+DateTime y = x.Add(timeSpan);
+DateTime y = x.AddDays(double);
+DateTime y = x.AddHours(double);
+DateTime y = x.AddMilliseconds(double);
+DateTime y = x.AddMinutes(double);
+DateTime y = x.AddMonths(int);
+DateTime y = x.AddSeconds(double);
+DateTime y = x.AddTicks(long);
+DateTime y = x.AddYears(int);
+DateTime y = x.Subtract(timeSpan); -> Retoran um time span
+TimeSpan t = x.Subtract(dateTime);
+
+Propriedades com TimeSpan
+MaxValue
+MinValue
+Zero
+
+Retorna Inteiro
+Console.WriteLine("Days: " + t.Days);
+Console.WriteLine("Hours: " + t.Hours);
+Console.WriteLine("Minutes: " + t.Minutes);
+Console.WriteLine("Milliseconds: " + t.Milliseconds);
+Console.WriteLine("Seconds: " + t.Seconds);
+Console.WriteLine("Ticks: " + t.Ticks);
+
+Retorna Quebrado
+Console.WriteLine("TotalDays: " + t.TotalDays);
+Console.WriteLine("TotalHours: " + t.TotalHours);
+Console.WriteLine("TotalMinutes: " + t.TotalMinutes);
+Console.WriteLine("TotalSeconds: " + t.TotalSeconds);
+Console.WriteLine("TotalMilliseconds: " + t.TotalMilliseconds)
+
+Operações com TimeSpan
+TimeSpan sum = t1.Add(t2);
+TimeSpan dif = t1.Subtract(t2); -> Retorna a diferenca
+TimeSpan mult = t2.Multiply(2.0);
+TimeSpan div = t2.Divide(2.0);
+
+DateTimeKind
+Tipo enumerado especial que define três valores possíveis para a localidade da data:
+Local [ fuso horário do sistema. Exemplo: São Paulo = GMT -3 ]
+Utc [ fuso horário GMT (Greenwich Mean Time) ]
+Unspecified -> Ele adiciona e subtrai em releacao ao horario local e do utc 
+
+Boa prática
+Armazenar em formato UTC (texto: BD / Json / XML)
+Instanciar e mostrar em formato Local
+
+Para converter um DateTime para Local ou Utc, você deve usar:
+myDate.ToLocalTime()
+myDate.ToUniversalTime()
+
+O C# Considera o jeito que instanciamos o jeitque que queremos mostrar a data, mas da pra definir um padrao, com o comando por exemplo pra data local ToLocalTime e para utc ToUniversalTime
+
+Padrão ISO 8601 -> E um formato padrao para escrita de data
+https://www.iso.org/iso-8601-date-and-time-format.html
+https://en.wikipedia.org/wiki/ISO_8601
+
+Formato:
+yyyy-MM-ddTHH:mm:ssZ
+* Z indica que a data/hora está em Utc
+
+Para formatar o texto para mostrar no patrao UTC, devemo sempre assegurar que a data antes da conversao esta no padrao universal

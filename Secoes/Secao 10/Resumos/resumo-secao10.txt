@@ -1,0 +1,100 @@
+-- Resumo da Seção 10: Herança e polimorfismo - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse capitulo, iremos abordar dois pilares importantes na programcao orientada a objetos, que são a heranca e o polimorfismo, com vários exemplos praticos, up e downcasting, classes e metodos abstratos, entre outros assuntos.
+
+Herança
+É um tipo de associação que permite que uma classe herde dados e comportamentos de outra
+
+Vantagens
+Reuso
+Polimorfismo
+
+Sintaxe
+: (estende)
+base (referência para a superclasse)
+
+O simbulo de heranca no UML e a setinha da ponta branca, onde a ponta aponta para a classe no qual a base da seta sai herda suas caracteristicas
+
+Definições importantes
+Relação "é-um"
+Generalização(Classe Pai)/especialização(classe filha)
+Superclasse (classe base) / subclasse (classe derivada)
+Herança / extensão extende a classe pai
+Herança é uma associação entre classes (e não entre objetos)
+
+Modificadores de acesso
+própria classe / subclasses no assembly / classes do assembly / subclasses fora do assembly / classes fora do assembly /
+public x x x x x
+protected internal x x x x
+internal x x x
+protected x x  x
+private protected x x
+private x
+
+Upcasting
+Casting da subclasse para superclasse
+Uso comum: polimorfismo
+
+Downcasting e inseguro, so deve ser usado quando necessario
+Casting da superclasse para subclasse
+Palavra as -> faz o castting
+Palavra is -> veririca se e uma instancia 
+Uso comum: métodos que recebem parâmetros genéricos (ex: Equals)
+
+Sobreposição ou sobrescrita
+É a implementação de um método de uma superclasse na subclasse
+Para que um método comum (não abstrato) possa ser sobreposto, deve ser incluído nele o prefixo "virtual"
+Ao sobrescrever um método, devemos incluir nele o prefixo "override"
+
+Palavra base
+É possível chamar a implementação da superclasse usando a palavra base.
+
+Classes e métodos selados
+Palavra chave: sealed -> Aquilo e selado
+Classe: evita que a classe seja herdada
+Nota: ainda é possível extender a funcionalidade de uma classe selada usando "extension methods"
+
+namespace Course {
+sealed class SavingsAccount {
+
+Método: evita que um método sobreposto possa ser sobreposto novamente
+Só pode ser aplicado a métodos sobrepostos
+
+Pra quê?
+Segurança: dependendo das regras do negócio, às vezes é desejável garantir que uma classe não seja herdada, ou que um método não seja sobreposto.
+Geralmente convém selar métodos sobrepostos, pois sobreposições múltiplas podem ser uma porta de entrada para inconsistências
+
+Performance: atributos de tipo de uma classe selada são analisados de forma mais rápida em tempo de execução.
+Exemplo clássico: string
+
+Pilares da OOP
+Encapsulamento
+Herança
+Polimorfismo
+
+Pilares da OOP
+Encapsulamento
+Herança
+Polimorfismo
+
+Polimorfismo
+Em Programação Orientada a Objetos, polimorfismo é recurso que permite que variáveis de um mesmo tipo mais genérico possam apontar para objetos de tipos específicos diferentes, tendo assim comportamentos diferentes conforme cada tipo específico.
+
+Importante entender
+A associação do tipo específico com o tipo genérico é feita em tempo de execução (upcasting).
+O compilador não sabe para qual tipo específico a chamada do método Withdraw está sendo feita (ele só sabe que são duas variáveis tipo Account)
+
+Classes abstratas
+São classes que não podem ser instanciadas
+É uma forma de garantir herança total: somente subclasses não abstratas podem ser instanciadas, mas nunca a superclasse abstrata
+Notação UML: itálico
+
+Reuso
+Polimorfismo: a superclasse classe genérica nos permite tratar de forma fácil e uniforme todos os tipos de conta, inclusive com polimorfismo se for o caso (como fizemos nos últimos exercícios). Por exemplo, você pode colocar todos
+tipos de contas em uma mesma coleção.
+
+Métodos abstratos
+São métodos que não possuem implementação.
+Métodos precisam ser abstratos quando a classe é genérica demais para conter sua implementação.
+Se uma classe possuir pelo menos um método abstrato, então esta classe também é abstrata.
+Notação UML: itálico

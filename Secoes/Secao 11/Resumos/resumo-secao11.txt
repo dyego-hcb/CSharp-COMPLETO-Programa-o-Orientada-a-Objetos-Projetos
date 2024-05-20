@@ -1,0 +1,78 @@
+-- Resumo da Seção 11: Tratamento de exceções - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse capitulo, iremos aprender a forma adequada de lidar com possiveis erros em nossas aplicacoes, onde iremos aprender a estrutura de execoes da linguagem C#, estrutura try-catch, bloco finally, como criar execoes personalizadas.
+Vamos ver na pratica a diferencas entre um programca adequado com lacamento de execoes comparado ao que nao lanca execoes.
+
+Exceções
+Uma exceção é qualquer condição de erro ou comportamento inesperado encontrado por um programa em execução
+No .NET, uma exceção é um objeto herdado da classe System.Exception
+Quando lançada, uma exceção é propagada na pilha de chamadas de métodos em execução, até que seja capturada (tratada) ou o programa seja encerrado
+
+Exception
+	SystemException -> Execoes do sistemas
+		IndexOutOfRangeException			
+		NullReferenceException
+		InvalidCastException
+		OutOfMemoryException
+		ArgumentException
+			ArgumentNullException
+			ArgumentOutOfRangeException
+		ExternalException
+			ComException
+			SEHException
+		ArithmeticException
+			DivideByZeroException
+			OverflowException
+	ApplicationExceptions -> Criar execoes personalizadas
+
+A existência dessas duas classes ApplicationExcep e SystemException é uma forma de permitir diferenciar exceções de sistema e exceções da sua aplicação
+
+Por que exceções?
+O modelo de tratamento de exceções permite que erros sejam tratados de forma consistente e flexível, usando boas práticas
+
+Vantagens:
+Delega a lógica do erro para a classe / método responsável por conhecer as regras que podem ocasionar o erro
+Trata de forma organizada (inclusive hierárquica) exceções de tipos diferentes
+A exceção pode carregar dados quaisquer
+
+Estrutura try-catch
+Bloco try
+Contém o código que representa a execução normal do trecho de código que pode acarretar em uma exceção
+
+Bloco catch
+Contém o código a ser executado caso uma exceção ocorra
+Deve ser especificado o tipo da exceção a ser tratada (upcasting é permitido)
+
+Sintaxe
+try {
+}
+catch (ExceptionType e) {
+}
+catch (ExceptionType e) {
+}
+catch (ExceptionType e) {
+}
+
+Bloco finally
+É um bloco que contém código a ser executado independentemente de ter ocorrido ou não uma exceção.
+Exemplo clássico: fechar um arquivo ou conexão de banco de dados ao final do processamento.
+
+Sintaxe:
+try {
+}
+catch (ExceptionType e) {
+}
+finally {
+}
+
+A ApplicationExceptions nos permite criar a nossa propria execao, do mesmo modo q criamos uma pasta enums para os arquivos enumerados, iremos criar uma pasta chamado execptions para salvar os arquivos de execao.
+A classe criada para ser a nossa classe de execao personalizadas, deve extender a classe ApplicationExceptions, onde criamos um contrutor que recebe uma msg e repassa essa msg para o a classe pai, nesse caso a classe ApplicationException, com isso criamos a nossa execao, basta utilizar o metodo throw para lancar a execao
+
+Cláusula throw: lança a exceção / "corta" o método
+O modelo de tratamento de exceções permite que erros sejam tratados de forma consistente e flexível, usando boas práticas
+
+Vantagens:
+Lógica delegada
+Construtores podem ter exceções
+Código mais simples. Não há aninhamento de condicionais: a qualquer momento que uma exceção for disparada, a execução é interrompida e cai no bloco catch correspondente.
+É possível capturar inclusive outras exceções de sistema

@@ -1,0 +1,177 @@
+-- Resumo da Seção 12: Projeto: Sistema de jogo de xadrez - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nessa secao, iremos colocar todo o conhecimento ate agora para criar um jogo de xadrez, totalmente funcional, onde nao contera com uma interface grafica, seus comandos e a visualizacao do jogo sera via terminal.
+
+O projeto esta no repositorio no github, no link: https://github.com/dyego-hcb/chess-system-c-sharp 
+
+Abaixo, iremos listar todo o passo a passo de desenvolvimento desse jogo de xadrez.
+
+Passo 0 -> Criando o projeto e o repositorio de versionamento:
+
+Para isso, iremos criar um novo projeto c#.
+Apos criar o projeto, iremos na pasta do projeto, e criaremos um arquivo chamado .gitignore, para ignorar algumas coisas no nosso projeto quando daermos push nos commits.
+Apos feito isso, iremos iniciar um repositorio git na pasta do nosso projeto, e dar o primeiro commit de inicializacao do projeto.
+
+Passo 1 -> Criando a primeira classe do projeto:
+
+A arquitetura do nosso projeto e arquitetura de padrao de camadas e, possui 3 camadas, cada qual com suas resposabilidades especificas:
+
+Aplicacao -> E o app proprio dito no modo de console
+Jogo de Xadrez -> Implementada a inteligencia das regras do jogo de xadrez
+Tabuleiro -> Operacoes e implementacoes basicas do tabuleiro
+
+Onde a aplicacao e o jogo de xadrez trocam informacoes e o tabuleiro troca informacoes com o jogo de xadrez
+
+Iremos criar uma pasta chamada tabuleiro, e dentro dessa pasta, ira conter todas as classes e metodos que compoe a regra de negocio do tabuleiro
+Em primeira intancia, iremos criar a classe posicao, que representara a posicao da peca no jogo
+
+Passo 2 -> Começando a implementar o tabuleiro:
+
+Nessa etapa, iremos implementar o tabuleiro, primeiramente iremos criar a classe enumerada de Cor, para definir a cor das pecas
+Apos feito a classe enumerada, iremos criar a classe Peca, que representara a forma mais generica de uma peca de xadrez
+Apos isso iremos criar a classe tabuleiro, visto que uma peca pertence a um tabuleiro
+No tabuleiro, teremos as configuracoes do tabuleiro em si de um jogo de xadrez
+
+Passo 3 -> Começando a implementar um método que imprime o tabuleiro:
+
+Nessa etapa, iremos comecar a implmentar o metodo para imprimir o tabuleiro de xadrez no terminal, visto que esse jogo de xadrez e jogado via terminal
+Onde cada lugar que possui o - e um espaco vazio.
+Para isso iremos criar uma classe chamada Tela, onde contera todas as funcoes para impressao do jogo na tela.
+
+Passo 4 -> Começando a colocar peças no tabuleiro:
+
+Nessa etapa, iremos finalizar a implementacao do tabuleiro na tela, onde iremos colocar algumas pecas no tabuleiro
+Pra isso, iremos adicionar uma operacao de adicionar peca
+Depois iremos criar uma classe da peca torre e rei, utilizando heranca na peca
+Todas as classes que representam pecas do jogo de xadrez serao salvas na pasta xadrez, que representa o sistema de xadrez
+
+Passo 5 -> Criando uma exceção personalizada de tabuleiro:
+
+Nessa etapa, iremos desenvolver algumas funcionalidades/melhorias na classe tabuleiro, como a criacao de execoes personalizadas e alguns outros medotoso
+A criacao de execoes e essencial para nao quebrar nossa aplicacao e continuar rodando, informando o erro apenas
+Para as execoes, iremos criar uma classe de execao para o tabuleiro
+
+Passo 6 -> Testando a exceção personalizada de tabuleiro:
+
+Nessa etapa, iremos testar se a execao sera capturada ou nao
+E tambem iremos fazer uma melhoria no codigo de colocar as pecas, respeitando as regras do xadrez
+
+Passo 7 -> Criando a classe PosicaoXadrez:
+
+Nessa etapa, iremos implementar a classe posicaoxadrz, que tera como objetivo adequar as regras de numeracao das casas, essa classe sera salva dentro da pasta xadrez.
+E contera com linha e colunas, onde a colunas sao letras e as linhas sao numeros
+Para melhorar a experiencia do usuario, porem a nivel de codigo, a matriz ainda e linha e colunas como numeros
+
+Passo 8 ->  Melhorando a impressão do tabuleiro:
+
+Nessa etapa, iremos implementar melhorias para a impressao do tabuleiro no console.
+Mostrando as colunas como numero e as linhas como letras
+ConsoleColor pega a cor atual do console
+
+Passo 9 -> Preparando o programa para testes iniciais:
+
+Nessa etapa iremos implementar as funcoes de colocar e retirar pecas
+Iremos criar a classe de partida de xadrez, que ira conter toda a logica de uma partida de xadrez, onde ela sera composta por tabuleiro, turnos, cor do jogador atual.
+Na classe partida de xadrez ira executar os movomentos de retirada de pecas e colocar tambem
+
+Passo 10 -> Realizando os primeiros testes de movimentação:
+
+Nessa etapa iremos realizar o teste de movimentacao criado no passo anterior
+Adicionamos uma variavel booleana tambem na partida de xadrez para verificar se a partida esta terminada ou nao
+Criamos uma funcao para ler os movimentos
+
+Passo 11 -> Projetando o método que diz quais movimentos possíveis de uma peça:
+
+Nessa etapa, iremos implementar o metodo que diz quais sao os possiveis movimentos de uma peca na classe peca, criando um metodo abstrado obrigando a implementacao para cada tipo de peca que existe no xadrez
+
+Passo 12 -> Implementando os movimentos possíveis do rei:
+
+Nessa etapa iremos implemnetar a operacao de movimentos possiveis do rei, alem do metoodo de podeMover
+
+Passo 13 -> Implementando os movimentos possíveis da torre:
+
+Nessa etapa iremos implemnetar a operacao de movimentos possiveis da torre, alem do metoodo de podeMover
+
+Passo 14 -> Testes iniciais dos movimentos das peças:
+
+Nessa etapa iremos testar os metodos de movimento do rei e torre
+Iremos implementar tambem um metodo para colorir os movimentos possiveis de uma peca
+
+Passo 15 -> Passando o turno:
+
+Nessa etapa iremos implementar a logica de passar o turno e restricoes impostas pela regras do xadrez
+
+Passo 16 -> Validando a posição de origem:
+
+Nessa etapa iremos implementar uma funcionalidade de verifcar se a posicao de origem e valida ou nao, caso nao seja mostrar uma msg ao usuario
+
+Passo 17 ->  Validando a posição de destino:
+
+Nessa etapa iremos implementar uma funcionalidade de verifcar se a posicao de destino e valida ou nao, caso nao seja mostrar uma msg ao usuario
+
+Passo 18 -> Implementando um controle de peças capturadas:
+
+Nessa etapa, iremos implementar um metodo que ira fazer o controle das pecas capturadas por cada jogador, salvando em conjuntos
+
+Passo 19 -> Testando o controle de peças capturadas:
+
+Nessa etapa, iremos testar o metodo implementado no passo anterior
+
+Passo 20 -> Implementando a lógica de xeque:
+
+Nessa etapa, iremos implementar a logica de xeque no rei
+Para veriricar se uma variavei de uma super classe e uma instancia da subclasse usa-se o is
+
+Passo 21 -> Testando o xeque:
+
+Nessa etapa, iremos testar o metodo implementado no passo anterior
+
+Passo 22 -> Implementando a lógica de xequemate:
+
+Nessa etapa, iremos implementar a logica de xequemate no rei
+
+Passo 23 -> Testando a lógica de xequemate:
+
+Nessa etapa, iremos testar o metodo implementado no passo anterior
+
+Passo 24 -> Correção: renomeando o método para movimentos possíveis:
+
+Nessa etapa, iremos renomear o metodo podeMoverPara para movimento possivel
+
+Passo 25 -> Implementando as demais peças:
+
+Nessa etapa iremos implementar as demais pecas que compoe o jogo de xadrez e colocar as pecas no tabuleiro
+
+Passo 26 -> Começando a implementar a jogada especial roque pequeno:
+
+Nessa etapa, iremos comeca a implementar a jogada especial roque pequeno
+
+Passo 27 -> Começando a implementar a jogada especial roque grande:
+
+Nessa etapa, iremos comeca a implementar a jogada especial roque grande
+
+Passo 28 -> Complementando as jogadas especiais roque pequeno e roque grande:
+
+Nessa etapa, iremos finalizar a implementacao das jogadas especial roque pequeno e grande
+
+Passo 29 -> Testando as jogadas especiais roque pequeno e roque grande:
+
+Testando os metodos implementados nos passos anteriores
+
+Passo 30 -> Começando a implementar a jogada especial en passant:
+
+Passo 31 -> Implementando movimentos possíveis para a jogada especial en passant:
+
+Nessa etapa, iremos comeca a implementacao da especial en passant
+
+Passo 32 -> Complementando a jogada especial en passant:
+
+Nessa etapa, iremos finalizar a implementacao da especial en passant
+
+Passo 33 -> Testando a jogada especial en passant:
+
+Testando os metodos implementados nos passos anteriores
+
+Passo 34 -> Jogada especial promoção:
+
+Nessa etapa, iremos implementar a implementacao da especial promoção

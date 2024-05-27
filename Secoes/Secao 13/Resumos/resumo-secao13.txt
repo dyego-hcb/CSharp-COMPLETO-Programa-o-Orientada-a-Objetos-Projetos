@@ -1,0 +1,105 @@
+-- Resumo da Seção 13: Trabalhando com arquivos - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nessa secao, iremos aprender a como utilizar arquivos na linguagem C#.
+
+File, FileInfo -> Classes basicas para a utilizacao de arquivos externos no programa
+Namespace System.IO -> Ambas pertencem ao name space
+Realiza operações com arquivos (create, copy, delete, move, open, etc.) e ajuda na criação de objetos FileStream(objeto que encapsula a sequencia de leitura ou escrita em um recurso de entrada e saida, nesse caso um arquivo).
+
+File
+static members (simples, mas realiza verificação de segurança para cada operação)
+https://msdn.microsoft.com/en-us/library/system.io.file(v=vs.110).aspx
+
+FileInfo
+instance members
+https://msdn.microsoft.com/en-us/library/system.io.fileinfo(v=vs.110).aspx
+
+IOException
+Namespace System.IO
+
+IOException -> Super classe
+
+Subclasses:
+DirectoryNotFoundException
+DriveNotFoundException
+EndOfStreamException
+FileLoadException
+FileNotFoundException
+PathTooLongException
+PipeException
+
+Ao utilizar o @ nao e necessario colocar duas barras para representar o caminho do arquivo
+Ao mecher com arquivo, devemos utilizar sempre o trycatch
+
+FileStream -> Essa classe encapsula a associacao de um objeto a um recurso de entrada e saida, no caso um arquivo
+https://msdn.microsoft.com/en-us/library/system.io.filestream(v=vs.90).aspx
+
+Disponibiliza uma stream associada a um arquivo, permitindo operações de leitura e escrita.
+Suporte a dados binários.
+
+Instanciação:
+Vários construtores
+File / FileInfo
+
+read bytes
+write byte
+FileStream -> instancia um objeto e esse objeto vai estar associado a um arquivo, e a partir dai podemos fazer operacoes de leitura e escrita
+
+StreamReader -> E um objeto instanciado a partir do file stream, e uma stream uma sequencia de dados
+https://msdn.microsoft.com/en-us/library/system.io.streamreader(v=vs.90).aspx
+
+É uma stream capaz de ler caracteres a partir de uma stream binária (ex: FileStream).
+Suporte a dados no formato de texto.
+
+Instanciação:
+Vários construtores
+File / FileInfo
+
+read chars StreamReader FileStream -> primeiro cria o filestream associado ao arquivo, depois cria o streamreader associado ao filestream
+
+Como o filesstrem e o streamreader sao recursos externos, nao e gerenciado pelo clr do dotnet, com isso precisamos fechar manualmente atraves do comando
+
+.close
+
+FileStream -> Apenas abre o arquivo
+StreamReader -> Realiza operacoes especificas
+
+using block -> Usado para simplificar a sintaxe de abertura e fechamentos de IDisposable
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-statement
+
+Sintaxe simplificada que garante que os objetos IDisposable serão fechados.
+Objetos IDisposable NÃO são gerenciados pelo CLR. Eles precisam ser manualmente fechados.
+
+Exemplos: Font, FileStream, StreamReader, StreamWriter
+
+StreamWriter -> Usada para escrever arquivos
+https://msdn.microsoft.com/en-us/library/system.io.streamwriter(v=vs.110).aspx
+
+É uma stream capaz de escrever caracteres a partir de uma stream binária (ex: FileStream).
+Suporte a dados no formato de texto.
+
+Instantiation:
+Several constructors
+File / FileInfo
+CreateText(path)
+AppendText(String)
+
+write chars StreamWriter FileStream
+
+Directory, DirectoryInfo -> Server para fonrecer operacoes com pastas
+Namespace System.IO
+Operações com pastas (create, enumerate, get files, etc.).
+
+Directory
+static members (simple, but performs security check for each operation)
+https://msdn.microsoft.com/en-us/library/system.io.directory(v=vs.110).aspx
+
+DirectoryInfo
+instance members
+https://msdn.microsoft.com/en-us/library/system.io.directoryinfo(v=vs.110).aspx
+
+Path -> Contem info sobre o caminho do arquivo
+Namespace System.IO
+
+Realiza operações com strings que contém informações de arquivos ou pastas.
+https://msdn.microsoft.com/en-us/library/system.io.path(v=vs.110).aspx

@@ -14,7 +14,7 @@ Durante o desenvolvimento do projeto, implementamos várias funcionalidades, inc
 
 O codigo fonte do projeto esta disponível no repositório no github no link: 
 
-https://github.com/dyego-hcb/CSharp-COMPLETO-Programa-o-Orientada-a-Objetos-Projetos
+https://github.com/dyego-hcb/chess-system-c-sharp
 
 ### Resumo
 

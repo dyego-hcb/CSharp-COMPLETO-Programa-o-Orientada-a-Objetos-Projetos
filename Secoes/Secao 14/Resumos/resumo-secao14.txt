@@ -1,0 +1,67 @@
+-- Resumo da Seção 14: Interfaces - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse capitulo, iremos aprender um pouco mais afundo sobre interfaces.
+
+Interface é um tipo que define um conjunto de operações que uma classe (ou struct) deve implementar.
+A interface estabelece um contrato que a classe (ou struct) deve cumprir.
+Pra quê interfaces?
+Para criar sistemas com baixo acoplamento e flexíveis.
+
+Em C# de costume de boas praticas, para criar uma interface deve-se iniciar com a letra I
+
+Nesse capitulo, ireoms ver a camada de servicos juntamente com o uso da camada de entidades
+
+Em C# podemos criar atributos/propriedades calculadas, que utilizam get que sao calculados a uma deterimnada regra de negocio
+
+A funcao Math.Ceiling arredonda pra cima
+
+A solucao sem interface pode ser melhorada pois, ha dependecia direta, com isso causa a aclopacamente forte, se precisar adicionar ou trocar algo na classe, deve fazer 2 alteracoes ou mais, isso nao e desejavel
+
+A interface faz com que seja obrigado a implementar aquela funcionalidade, e associa a classe a interface e nao o metodo, gerando um acoplamento fraco, visto que a classe nao conhece a dependencia concreta de outra classa.
+
+Para falar que uma classe e um subtipo da interface, que tem que cumprir aquele contrato, a sintaxe e a mesmsa da heranca :
+
+Inversão de controle, Injeção de dependência
+
+Acoplamento forte
+A classe RentalService conhece a dependência concreta
+Se a classe concreta mudar, é preciso mudar a classe RentalService, gerando 2 pontos de alteracao
+
+Acoplamento fraco
+A classe RentalService não conhece a dependência concreta
+Se a classe concreta mudar, a classe RentalService não muda nada
+
+Inversão de controle
+Padrão de desenvolvimento que consiste em retirar da classe a responsabilidade de instanciar suas dependências.
+
+Injeção de dependência
+É uma forma de realizar a inversão de controle: um componente externo instancia a dependência, que é então injetada no objeto "pai". Pode ser implementada de várias formas:
+Construtor
+Objeto de instanciação (builder / factory)
+Container / framework
+
+Herdar vs. cumprir contrato
+Aspectos em comum entre herança e interfaces
+Relação é-um
+Generalização/especialização
+Polimorfismo
+
+Diferença fundamental
+Herança => reuso de informacoes e comportamentos
+Interface => contrato a ser cumprido, tem que ter aquela operacao
+
+Problema do diamante
+A herança múltipla e quando herdamos de duas classes e pode gerar o problema do diamante: uma ambiguidade causada pela existência do mesmo método em mais de uma superclasse.
+
+Herança múltipla não é permitida na maioria das linguagens! C# e uma delas
+
+Porém, uma classe (ou struct) pode implementar mais de uma interface
+
+ATENÇÃO:
+Isso NÃO é herança múltipla, pois NÃO HÁ REUSO na relação entre ComboDevice e as interfaces Scanner e Printer.
+
+ComboDevide não herda, mas sim implementa as interfaces (cumpre o contrato).
+
+Interface Comparable -> Padrao usado por C# para compara um objeto com outro, deve-se implementar o metodo CompareTo, seu retorno e -1 -> Menor 0 -> Iguais 1 -> Maior
+https://msdn.microsoft.com/en-us/library/system.icomparable(v=vs.110).aspx
+

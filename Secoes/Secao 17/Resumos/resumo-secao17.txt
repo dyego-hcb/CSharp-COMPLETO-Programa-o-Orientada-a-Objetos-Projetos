@@ -1,0 +1,152 @@
+-- Resumo da Seção 17: Expressões lambda, delegates e LINQ - C# COMPLETO Programação Orientada a Objetos + Projetos --
+
+Nesse capitulo iremos abordar os temas de expressoes lambdas, delegates, linq, programacao funcional, onde iremos ver as melhorias que podemos adicionarem nossos codigos paar que o codigo fique o mais limpo e perfomatico possivel
+
+Comparison<T> (System)
+
+Método Sort com Comparison<T> da classe List:
+https://msdn.microsoft.com/en-us/library/w56d4y5z%28v=vs.110%29.aspx
+
+Com programacao funcional, conseguimos mudar o criterio de comparacao sem mudar nada na classe 
+Comparison e um delegate que e uma referencia para a funcao
+O comparison e uma assinatura de funcao que recebe uma funcao qualquer que recebe 2 objetos e retorna um inteiro 
+Podemos criar variaveis do tipo comparison que guarda a ref de uma funcao
+Expressao lambda e uma funcao anonima, que pode ser atribuida a uma variavel comparison e tambem pode ser criada em linha
+
+Programação funcional e cálculo lambda
+
+Paradigmas de programação
+Imperativo (C, Pascal, Fortran, Cobol)
+Orientado a objetos (C++, Object Pascal, Java (< 8), C# (< 3))
+Funcional (Haskell, Closure, Clean, Erlang)
+Lógico (Prolog)
+Multiparadigma (JavaScript, Java (8+), C# (3+), Ruby, Python, Go)
+
+Paradigma funcional de programação
+Baseado no formalismo matemático Cálculo Lambda (Church 1930)
+
+Programação Imperativa | Programação Funcional
+Como se descreve algo a ser computado (*): comandos ("como fazer" - imperativa, da comando) | expressões ("o quê queremos" - declarativa, descreve o que queremo)
+Funções possuem transparência referencial(ausência de efeitos colaterais): fraco | forte
+Objetos imutáveis (*): raro | comum
+Funções são objetos de primeira ordem: não | sim
+Expressividade / código conciso: baixa (Escreve muito para fazer pouca coisa) | alta (Escreve pouco para, declara o que e pra fazer e faz muita coisa)
+Inferência de tipos: raro | comum
+Execução tardia (lazy): raro | comum
+
+Transparência referencial
+Uma função possui transparência referencial se seu resultado for sempre o mesmo para os mesmos dados de entrada. Benefícios: simplicidade e previsibilidade.
+
+Funções são objetos de primeira ordem (ou primeira classe)
+Isso significa que funções podem, por exemplo, serem passadas como parâmetros de métodos, bem como retornadas como resultado de métodos.
+
+Inferência de tipos -> quando nao precisamos declara a variavel a propria linguagem e capaz de inferir o tipo da variavel
+
+Expressividade / "como" vs. "o quê"
+
+Comandos para executar o que queremos
+int sum = 0;
+foreach (int x in list) {
+sum += x;
+}
+
+vs.
+
+Definimos uma expressao
+int sum = list.Aggregate(0, (x, y) => x + y);
+
+O que são "expressões lambda"?
+Em programação funcional, expressão lambda corresponde a uma função anônima de primeira classe.
+
+Cálculo Lambda = formalismo matemático base da programação funcional
+Expressão lambda = função anônima de primeira classe
+
+Delegates -> para declarar basta criar a referencia de uma funcao e antes do retorno colocar o delegate
+https://docs.microsoft.com/en-us/dotnet/standard/delegates-lambdas
+É uma referência (com type safety tem que ter a mesma assinatura e definicao) para um ou mais métodos
+É um tipo referência
+
+Usos comuns:
+Comunicação entre objetos de forma flexível e extensível (eventos / callbacks)
+Parametrização de operações por métodos (programação funcional)
+
+Metodo invoke invoca a fucao referenciada ao delegate
+
+Delegates pré-definidos principais:
+Action
+Func
+Predicate
+
+Multicast delegates
+Delegates que guardam a referência para mais de um método
+Para adicionar uma referência, pode-se usar o operador +=
+A chamada Invoke (ou sintaxe reduzida) executa todos os métodos na ordem em que foram adicionados
+Seu uso faz sentido para métodos void
+
+Predicate (System)
+Representa um método que recebe um objeto do tipo T e retorna um valor booleano
+
+Action (System)
+Representa um método void que recebe zero ou mais argumentos
+https://msdn.microsoft.com/en-us/library/system.action%28v=vs.110%29.aspx
+
+Em caso de acao em expressao lambida deve-se usar o {}
+
+Func (System)
+Representa um método que recebe zero ou mais argumentos, e retorna um valor, unica diferenca pro action
+https://msdn.microsoft.com/en-us/library/bb534960%28v=vs.110%29.aspx
+
+Nota sobre a função Select
+A função "Select" (pertencente ao LINQ) é uma função que aplica uma função a todos elementos de uma coleção, gerando assim uma nova coleção (do tipo IEnumerable).
+
+LINQ - Language Integrated Query
+É um conjunto de tecnologias baseadas na integração de funcionalidades de consulta diretamente na linguagem C#
+Operações chamadas diretamente a partir das coleções
+Consultas são objetos de primeira classe
+Suporte do compilador e IntelliSense da IDE
+Namespace: System.Linq
+Possui diversas operações de consulta, cujos parâmetros tipicamente são expressões lambda ou expressões de sintaxe similar à SQL
+Referência:
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/index
+
+Três passos
+Criar um data source (coleção, array, recurso de E/S, etc.)
+Definir a query
+Executar a query (foreach ou alguma operação terminal)
+
+Operações do LINQ
+Filtering: Where, OfType
+Sorting: OrderBy, OrderByDescending, ThenBy, ThenByDescending, Reverse
+Set: Distinct, Except, Intersect, Union
+Quantification: All, Any, Contains
+Projection: Select, SelectMany
+Partition: Skip, Take
+Join: Join, GroupJoin
+Grouping: GroupBy
+Generational: Empty
+Equality: SequenceEquals
+Element: ElementAt, First, FirstOrDefault Last, LastOrDefault, Single, SingleOrDefault
+Conversions: AsEnumerable, AsQueryable
+Concatenation: Concat
+Aggregation: Aggregate, Average, Count, LongCount, Max, Min, Sum
+
+Map reduce e utilizado para criacar operacoes agregadas personalizadas
+
+Operações básicas da álgebra relacional, as classes sao tabelas que possuem atributos 
+Restrição
+Projeção
+Produto cartesiano
+Junção (produto cartesiano + restrição de chaves correspondentes)
+
+Operação "produto cartesiano":
+SELECT * FROM PRODUCT, CATEGORY
+
+Operação "junção":
+SELECT * FROM PRODUCT, CATEGORY WHERE PRODUCT.CATEGORY_ID = CATEGORY.ID
+SELECT * FROM PRODUCT INNER JOIN CATEGORY cat ON PRODUCT.CATEGORY_ID = cat.ID
+
+Operação "restrição":
+SELECT * FROM PRODUCT INNER JOIN CATEGORY cat ON PRODUCT.CATEGORY_ID = cat.ID WHERE CATEGORY.NAME = 'Computers'
+
+Operação "projeção":
+SELECT PRODUCT.*, CATEGORY.NAME FROM PRODUCT INNER JOIN CATEGORY cat ON PRODUCT.CATEGORY_ID = cat.ID WHERE CATEGORY.NAME = 'Computers
